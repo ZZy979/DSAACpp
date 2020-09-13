@@ -32,8 +32,9 @@ public:
 	int index_of(const T& value) const override;
 	void push_back(const T& value) override;
 	void pop_back() override;
-	void erase(int index) override;
 	void insert(int index, const T& value) override;
+	void erase(int index) override;
+	void clear() override;
 	void output(ostream& out) const override;
 
 	int capacity() const { return space; }
@@ -94,9 +95,6 @@ public:
 
 	// 把数组容量改为当前容量和new_capacity的较大者
 	void reserve(int new_capacity);
-
-	// 清空线性表
-	void clear();
 
 	// 删除[from, to)内的所有元素，若from或to不在[0, size())内则抛出out_of_range异常
 	void remove_range(int from, int to);
@@ -177,15 +175,9 @@ void Array_list<T>::push_back(const T& value)
 template<class T>
 void Array_list<T>::pop_back()
 {
+	if (sz == 0)
+		throw out_of_range("pop_back from empty list");
 	element[--sz].~T();
-}
-
-template<class T>
-void Array_list<T>::erase(int index)
-{
-	this->check_index(index);
-	copy(element + index + 1, element + sz, element + index);
-	element[--sz].~T();  // 调用析构函数
 }
 
 template<class T>
@@ -207,6 +199,21 @@ void Array_list<T>::insert(int index, const T& value)
 	std::copy_backward(element + index, element + sz, element + sz + 1);
 	element[index] = value;
 	++sz;
+}
+
+template<class T>
+void Array_list<T>::erase(int index)
+{
+	this->check_index(index);
+	copy(element + index + 1, element + sz, element + index);
+	element[--sz].~T();  // 调用析构函数
+}
+
+template<class T>
+void Array_list<T>::clear()
+{
+	while (sz > 0)
+		pop_back();
 }
 
 template<class T>
@@ -254,7 +261,7 @@ void Array_list<T>::trim_to_size()
 template<class T>
 void Array_list<T>::set_size(int new_size)
 {
-	while (sz > new_size)
+	while (sz > new_size && sz > 0)
 		pop_back();
 }
 
@@ -282,13 +289,6 @@ void Array_list<T>::reserve(int new_capacity)
 		change_length_1d(element, space, new_capacity);
 		space = new_capacity;
 	}
-}
-
-template<class T>
-void Array_list<T>::clear()
-{
-	while (sz > 0)
-		pop_back();
 }
 
 template<class T>

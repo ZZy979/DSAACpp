@@ -24,6 +24,7 @@
   <ItemGroup>
     <ClInclude Include="Linear_list\Array_list.h" />
     <ClInclude Include="Linear_list\Linear_list.h" />
+    <ClInclude Include="Linear_list\Linked_list.h" />
     <ClInclude Include="Linear_list\Vector_list.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>

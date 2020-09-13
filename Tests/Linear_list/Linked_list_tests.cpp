@@ -1,54 +1,41 @@
 #include <string>
 #include "CppUnitTest.h"
-#include "Linear_list/Array_list.h"
+#include "Linear_list/Linked_list.h"
 
 using std::string;
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace Tests
 {
-TEST_CLASS(Array_list_tests)
+TEST_CLASS(Linked_list_tests)
 {
-	Array_list<int> list;
+	Linked_list<int> list;
 public:
 
 	TEST_METHOD_INITIALIZE(setup_class)
 	{
-		// [0, 1, 2, 3, 4, 5], capacity = 8
-		// 自定义类包含动态数组指针时一定要自定义赋值运算符！！！否则会被内存越界坑一下午_(:з」∠)_
-		list = Array_list<int>(2);
-		list.insert(0, 1);
-		list.insert(1, 5);
-		list.insert(0, 0);
-		list.insert(2, 3);
-		list.insert(3, 4);
-		list.insert(2, 2);
+		// [0, 1, 2, 3, 4, 5]
+		list = Linked_list<int>();
+		for (int i = 0; i < 6; ++i)
+			list.push_back(i);
 	}
 
 	TEST_METHOD(test_constructor)
 	{
-		Linear_list<double>* a = new Array_list<double>(20);
+		Linear_list<double>* a = new Linked_list<double>();
 		delete a;
-		Array_list<int> b(list);
+		Linked_list<int> b(list);
 		Assert::IsTrue(b == list);
-		Assert::ExpectException<invalid_argument>([&b]() { b = Array_list<int>(-1); });
-	}
-
-	TEST_METHOD(test_capacity)
-	{
-		Array_list<int> a(8), b;
-		Assert::AreEqual(8, a.capacity());
-		Assert::AreEqual(10, b.capacity());
 	}
 
 	TEST_METHOD(test_size_and_empty)
 	{
-		Array_list<int> a;
-		Assert::AreEqual(0, a.size());
-		Assert::IsTrue(a.empty());
-		a.insert(0, 8);
-		Assert::AreEqual(1, a.size());
-		Assert::IsFalse(a.empty());
+		Linked_list<int> l;
+		Assert::AreEqual(0, l.size());
+		Assert::IsTrue(l.empty());
+		l.insert(0, 8);
+		Assert::AreEqual(1, l.size());
+		Assert::IsFalse(l.empty());
 	}
 
 	TEST_METHOD(test_get)
@@ -59,9 +46,9 @@ public:
 
 	TEST_METHOD(test_set)
 	{
-		int v = list.set(3, 333);
+		int l = list.set(3, 333);
 		Assert::AreEqual(333, list[3]);
-		Assert::AreEqual(3, v);
+		Assert::AreEqual(3, l);
 		Assert::ExpectException<out_of_range>([this]() { list.set(7, 777); });
 	}
 
@@ -74,33 +61,32 @@ public:
 
 	TEST_METHOD(test_push_back)
 	{
-		Array_list<int> a(1);
-		Assert::AreEqual(0, a.size());
-		a.push_back(8);
-		Assert::AreEqual(1, a.size());
-		Assert::AreEqual(8, a[0]);
-		a.push_back(9);
-		Assert::AreEqual(2, a.size());
-		Assert::AreEqual(9, a[1]);
-		Assert::AreEqual(2, a.capacity());
+		Linked_list<int> l;
+		Assert::AreEqual(0, l.size());
+		l.push_back(8);
+		Assert::AreEqual(1, l.size());
+		Assert::AreEqual(8, l[0]);
+		l.push_back(9);
+		Assert::AreEqual(2, l.size());
+		Assert::AreEqual(9, l[1]);
 	}
 
 	TEST_METHOD(test_pop_back)
 	{
-		Array_list<int> a;
-		a.push_back(8);
-		Assert::AreEqual(1, a.size());
-		a.pop_back();
-		Assert::AreEqual(0, a.size());
-		Assert::ExpectException<out_of_range>([&a]() { a.pop_back(); });
+		Linked_list<int> l;
+		l.push_back(8);
+		Assert::AreEqual(1, l.size());
+		l.pop_back();
+		Assert::AreEqual(0, l.size());
+		Assert::ExpectException<out_of_range>([&l]() { l.pop_back(); });
 	}
 
 	TEST_METHOD(test_insert)
 	{
 		Assert::AreEqual(6, list.size());
-		for (int i = 0; i < list.size(); ++i)
-			Assert::AreEqual(i, list[i]);
-		Assert::AreEqual(8, list.capacity());
+		int v = 0;
+		for (auto p = list.begin(); p != list.end(); ++p)
+			Assert::AreEqual(v++, *p);
 		list.push_back(6);
 		Assert::AreEqual(7, list.size());
 		Assert::AreEqual(6, list[6]);
@@ -121,7 +107,6 @@ public:
 	{
 		list.clear();
 		Assert::AreEqual(0, list.size());
-		Assert::AreEqual(8, list.capacity());
 	}
 
 	TEST_METHOD(test_output)
@@ -134,20 +119,8 @@ public:
 	TEST_METHOD(test_iterator)
 	{
 		int v = 0;
-		for (Array_list<int>::iterator p = list.begin(); p != list.end(); ++p)
+		for (Linked_list<int>::iterator p = list.begin(); p != list.end(); ++p)
 			Assert::AreEqual(v++, *p);
-		auto p = list.end();
-		while (p != list.begin())
-			Assert::AreEqual(--v, *(--p));
-	}
-
-	TEST_METHOD(test_trim_to_size)
-	{
-		list.trim_to_size();
-		Assert::AreEqual(list.size(), list.capacity());
-		Array_list<int> a;
-		a.trim_to_size();
-		Assert::AreEqual(1, a.capacity());
 	}
 
 	TEST_METHOD(test_set_size)
@@ -177,10 +150,10 @@ public:
 
 	TEST_METHOD(test_compare)
 	{
-		Array_list<int> a(list), b(list);
+		Linked_list<int> a(list), b(list);
 		Assert::IsTrue(a == list);
 		Assert::IsTrue(b == list);
-		a[0] = 8;
+		a.set(0, 8);
 		b.erase(5);
 		Assert::IsTrue(list < a);
 		Assert::IsTrue(b < list);
@@ -188,28 +161,20 @@ public:
 
 	TEST_METHOD(test_swap)
 	{
-		Array_list<int> a(list), b(list), c;
+		Linked_list<int> a(list), b(list), c;
 		c.swap(b);
 		Assert::IsTrue(a == c);
-	}
-
-	TEST_METHOD(test_reserve)
-	{
-		list.reserve(4);
-		Assert::AreEqual(8, list.capacity());
-		list.reserve(10);
-		Assert::AreEqual(10, list.capacity());
 	}
 
 	TEST_METHOD(test_remove_range)
 	{
 		list.remove_range(1, 4);
 		Assert::AreEqual(3, list.size());
-		Array_list<int> a(3);
-		a.push_back(0);
-		a.push_back(4);
-		a.push_back(5);
-		Assert::IsTrue(a == list);
+		Linked_list<int> l;
+		l.push_back(0);
+		l.push_back(4);
+		l.push_back(5);
+		Assert::IsTrue(l == list);
 	}
 
 };

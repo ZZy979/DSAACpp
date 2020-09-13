@@ -29,8 +29,9 @@ public:
 	int index_of(const T& value) const override;
 	void push_back(const T& value) override;
 	void pop_back() override;
-	void erase(int index) override;
 	void insert(int index, const T& value) override;
+	void erase(int index) override;
+	void clear() override;
 	void output(ostream& out) const override;
 
 	int capacity() const { return (int) element.capacity(); }
@@ -95,14 +96,9 @@ void Vector_list<T>::push_back(const T& value)
 template<class T>
 void Vector_list<T>::pop_back()
 {
+	if (element.empty())
+		throw out_of_range("pop_back from empty list");
 	element.pop_back();
-}
-
-template<class T>
-void Vector_list<T>::erase(int index)
-{
-	this->check_index(index);
-	element.erase(element.begin() + index);
 }
 
 template<class T>
@@ -114,6 +110,19 @@ void Vector_list<T>::insert(int index, const T& value)
 		throw out_of_range(oss.str());
 	}
 	element.insert(element.begin() + index, value);
+}
+
+template<class T>
+void Vector_list<T>::erase(int index)
+{
+	this->check_index(index);
+	element.erase(element.begin() + index);
+}
+
+template<class T>
+void Vector_list<T>::clear()
+{
+	element.clear();
 }
 
 template<class T>

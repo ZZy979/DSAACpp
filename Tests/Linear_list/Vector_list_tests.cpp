@@ -38,12 +38,12 @@ public:
 
 	TEST_METHOD(test_size_and_empty)
 	{
-		Vector_list<int> a;
-		Assert::AreEqual(0, a.size());
-		Assert::IsTrue(a.empty());
-		a.insert(0, 8);
-		Assert::AreEqual(1, a.size());
-		Assert::IsFalse(a.empty());
+		Vector_list<int> v;
+		Assert::AreEqual(0, v.size());
+		Assert::IsTrue(v.empty());
+		v.insert(0, 8);
+		Assert::AreEqual(1, v.size());
+		Assert::IsFalse(v.empty());
 	}
 
 	TEST_METHOD(test_get)
@@ -67,6 +67,29 @@ public:
 		Assert::AreEqual(-1, list.index_of(7));
 	}
 
+	TEST_METHOD(test_push_back)
+	{
+		Vector_list<int> v(1);
+		Assert::AreEqual(0, v.size());
+		v.push_back(8);
+		Assert::AreEqual(1, v.size());
+		Assert::AreEqual(8, v[0]);
+		v.push_back(9);
+		Assert::AreEqual(2, v.size());
+		Assert::AreEqual(9, v[1]);
+		Assert::AreEqual(2, v.capacity());
+	}
+
+	TEST_METHOD(test_pop_back)
+	{
+		Vector_list<int> v;
+		v.push_back(8);
+		Assert::AreEqual(1, v.size());
+		v.pop_back();
+		Assert::AreEqual(0, v.size());
+		Assert::ExpectException<out_of_range>([&v]() { v.pop_back(); });
+	}
+
 	TEST_METHOD(test_insert)
 	{
 		Assert::AreEqual(6, list.size());
@@ -88,6 +111,12 @@ public:
 		Assert::ExpectException<out_of_range>([this]() { list.erase(-1); });
 	}
 
+	TEST_METHOD(test_clear)
+	{
+		list.clear();
+		Assert::AreEqual(0, list.size());
+	}
+
 	TEST_METHOD(test_output)
 	{
 		ostringstream oss;
@@ -98,8 +127,8 @@ public:
 	TEST_METHOD(test_iterator)
 	{
 		int v = 0;
-		for (Vector_list<int>::const_iterator p = list.begin(); p != list.end(); ++p, ++v)
-			Assert::AreEqual(v, *p);
+		for (Vector_list<int>::const_iterator p = list.begin(); p != list.end(); ++p)
+			Assert::AreEqual(v++, *p);
 		auto p = list.end();
 		while (p != list.begin())
 			Assert::AreEqual(--v, *(--p));
