@@ -21,5 +21,8 @@
     <ClCompile Include="Linear_list\Array_list_tests.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Linear_list\Vector_list_tests.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,12 +1,19 @@
 #pragma once
 #include <iostream>
+#include <sstream>
+#include <stdexcept>
 
 using std::ostream;
+using std::ostringstream;
+using std::out_of_range;
 
 // 抽象类Linear_list，线性表ADT
 template<class T>
 class Linear_list
 {
+protected:
+	// 若index不在[0, size())内则抛出out_of_range异常
+	void check_index(int index) const;
 public:
 	virtual ~Linear_list() = default;
 
@@ -17,7 +24,7 @@ public:
 	virtual int size() const = 0;
 
 	// 返回索引为index的元素，若index不在[0, size())内则抛出out_of_range异常
-	virtual T& get(int index) const = 0;
+	virtual const T& get(int index) const = 0;
 
 	// 用value替换索引为index的元素并返回原来的元素
 	// 若index不在[0, size())内则抛出out_of_range异常
@@ -41,3 +48,13 @@ public:
 	// 把线性表插入输出流out
 	virtual void output(ostream& out) const = 0;
 };
+
+template<class T>
+void Linear_list<T>::check_index(int index) const
+{
+	if (index < 0 || index >= size()) {
+		ostringstream oss;
+		oss << "index = " << index << ", size = " << size();
+		throw out_of_range(oss.str());
+	}
+}

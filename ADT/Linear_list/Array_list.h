@@ -1,15 +1,11 @@
 #pragma once
-#include <sstream>
 #include <iterator>
 #include <algorithm>
-#include <stdexcept>
 #include "Linear_list.h"
 #include "../utils.h"
 
-using std::ostringstream;
 using std::copy;
 using std::invalid_argument;
-using std::out_of_range;
 
 // 线性表的数组实现
 template<class T>
@@ -19,9 +15,6 @@ protected:
 	T* element;     // 存储线性表元素的一维数组
 	int space;      // 数组的容量
 	int sz;         // 元素个数
-
-	// 若index不在[0, sz)内则抛出out_of_range异常
-	void check_index(int index) const;
 public:
 	explicit Array_list(int capacity = 10);
 	Array_list(const Array_list& a);
@@ -34,7 +27,7 @@ public:
 
 	int size() const override { return sz; }
 
-	T& get(int index) const override;
+	const T& get(int index) const override;
 	T set(int index, const T& value) override;
 	int index_of(const T& value) const override;
 	void push_back(const T& value) override;
@@ -110,16 +103,6 @@ public:
 
 };
 
-template<class T>
-void Array_list<T>::check_index(int index) const
-{
-	if (index < 0 || index >= sz) {
-		ostringstream oss;
-		oss << "index = " << index << ", size = " << sz;
-		throw out_of_range(oss.str());
-	}
-}
-
 // 构造函数，如果capacity<=0则抛出invalid_argument异常
 template<class T>
 Array_list<T>::Array_list(int capacity)
@@ -159,16 +142,16 @@ Array_list<T>& Array_list<T>::operator=(const Array_list<T>& a)
 }
 
 template<class T>
-T& Array_list<T>::get(int index) const
+const T& Array_list<T>::get(int index) const
 {
-	check_index(index);
+	this->check_index(index);
 	return element[index];
 }
 
 template<class T>
 T Array_list<T>::set(int index, const T& value)
 {
-	check_index(index);
+	this->check_index(index);
 	T old = element[index];
 	element[index] = value;
 	return old;
@@ -200,7 +183,7 @@ void Array_list<T>::pop_back()
 template<class T>
 void Array_list<T>::erase(int index)
 {
-	check_index(index);
+	this->check_index(index);
 	copy(element + index + 1, element + sz, element + index);
 	element[--sz].~T();  // 调用析构函数
 }
@@ -311,8 +294,8 @@ void Array_list<T>::clear()
 template<class T>
 void Array_list<T>::remove_range(int from, int to)
 {
-	check_index(from);
-	check_index(to);
+	this->check_index(from);
+	this->check_index(to);
 	if (from >= to)
 		return;
 	copy(element + to, element + sz, element + from);
