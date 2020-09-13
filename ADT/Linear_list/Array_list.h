@@ -82,6 +82,32 @@ public:
 	// 返回指向最后一个元素的下一个位置的迭代器
 	iterator end() const { return iterator(element + sz); }
 
+	T& operator[](int index) { return element[index]; }
+
+	const T& operator[](int index) const { return element[index]; }
+
+	// 使数组容量等于max{size(), 1}
+	void trim_to_size();
+
+	// 使线性表的大小等于new_size
+	// 如果new_size<size()则删除多余元素，否则什么都不做
+	void set_size(int new_size);
+
+	// 返回value最后一次出现时的索引，若不存在则返回-1
+	int last_index_of(const T& value) const;
+
+	// 交换元素*this和a的元素
+	void swap(Array_list<T>& a);
+
+	// 把数组容量改为当前容量和new_capacity的较大者
+	void reserve(int new_capacity);
+
+	// 清空线性表
+	void clear();
+
+	// 删除[from, to)内的所有元素，若from或to不在[0, size())内则抛出out_of_range异常
+	void remove_range(int from, int to);
+
 };
 
 template<class T>
@@ -209,8 +235,89 @@ void Array_list<T>::output(ostream& out) const
 }
 
 template<class T>
-ostream& operator<<(ostream& out, const Array_list<T>& x)
+ostream& operator<<(ostream& out, const Array_list<T>& a)
 {
-	x.output(out);
+	a.output(out);
 	return out;
+}
+
+template<class T>
+bool operator==(const Array_list<T>& a, const Array_list<T>& b)
+{
+	return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
+template<class T>
+bool operator!=(const Array_list<T>& a, const Array_list<T>& b)
+{
+	return !(a == b);
+}
+
+template<class T>
+bool operator<(const Array_list<T>& a, const Array_list<T>& b)
+{
+	return std::lexicographical_compare(a.begin(), a.end(), b.begin(), b.end());
+}
+
+template<class T>
+void Array_list<T>::trim_to_size()
+{
+	if (space == sz)
+		return;
+	space = sz == 0 ? 1 : sz;
+	change_length_1d(element, sz, space);
+}
+
+template<class T>
+void Array_list<T>::set_size(int new_size)
+{
+	while (sz > new_size)
+		pop_back();
+}
+
+template<class T>
+int Array_list<T>::last_index_of(const T& value) const
+{
+	for (int index = sz - 1; index >= 0; --index)
+		if (element[index] == value)
+			return index;
+	return -1;
+}
+
+template<class T>
+void Array_list<T>::swap(Array_list<T>& a)
+{
+	std::swap(element, a.element);
+	std::swap(space, a.space);
+	std::swap(sz, a.sz);
+}
+
+template<class T>
+void Array_list<T>::reserve(int new_capacity)
+{
+	if (new_capacity > space) {
+		change_length_1d(element, space, new_capacity);
+		space = new_capacity;
+	}
+}
+
+template<class T>
+void Array_list<T>::clear()
+{
+	while (sz > 0)
+		pop_back();
+}
+
+template<class T>
+void Array_list<T>::remove_range(int from, int to)
+{
+	check_index(from);
+	check_index(to);
+	if (from >= to)
+		return;
+	copy(element + to, element + sz, element + from);
+	int new_size = sz - to + from;
+	for (int i = new_size; i < sz; ++i)
+		element[i].~T();
+	sz = new_size;
 }

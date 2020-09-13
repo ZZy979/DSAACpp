@@ -29,8 +29,8 @@ public:
 	{
 		Linear_list<double>* a = new Array_list<double>(20);
 		delete a;
-		Array_list<int> b(2);
-		b = Array_list<int>();
+		Array_list<int> b(list);
+		Assert::IsTrue(b == list);
 		Assert::ExpectException<invalid_argument>([&b]() { b = Array_list<int>(-1); });
 	}
 
@@ -60,7 +60,7 @@ public:
 	TEST_METHOD(test_set)
 	{
 		int v = list.set(3, 333);
-		Assert::AreEqual(333, list.get(3));
+		Assert::AreEqual(333, list[3]);
 		Assert::AreEqual(3, v);
 		Assert::ExpectException<out_of_range>([this]() { list.set(7, 777); });
 	}
@@ -76,11 +76,11 @@ public:
 	{
 		Assert::AreEqual(6, list.size());
 		for (int i = 0; i < list.size(); ++i)
-			Assert::AreEqual(i, list.get(i));
+			Assert::AreEqual(i, list[i]);
 		Assert::AreEqual(8, list.capacity());
 		list.push_back(6);
 		Assert::AreEqual(7, list.size());
-		Assert::AreEqual(6, list.get(6));
+		Assert::AreEqual(6, list[6]);
 		Assert::ExpectException<out_of_range>([this]() { list.insert(9, 999); });
 	}
 
@@ -88,7 +88,7 @@ public:
 	{
 		list.erase(1);
 		Assert::AreEqual(5, list.size());
-		Assert::AreEqual(2, list.get(1));
+		Assert::AreEqual(2, list[1]);
 		list.pop_back();
 		Assert::AreEqual(4, list.size());
 		Assert::ExpectException<out_of_range>([this]() { list.erase(-1); });
@@ -109,6 +109,82 @@ public:
 		auto p = list.end();
 		while (p != list.begin())
 			Assert::AreEqual(--v, *(--p));
+	}
+
+	TEST_METHOD(test_trim_to_size)
+	{
+		list.trim_to_size();
+		Assert::AreEqual(list.size(), list.capacity());
+		Array_list<int> a;
+		a.trim_to_size();
+		Assert::AreEqual(1, a.capacity());
+	}
+
+	TEST_METHOD(test_set_size)
+	{
+		list.set_size(10);
+		Assert::AreEqual(6, list.size());
+		list.set_size(3);
+		Assert::AreEqual(3, list.size());
+	}
+
+	TEST_METHOD(test_subscript)
+	{
+		Assert::AreEqual(0, list[0]);
+		list[0] = 8;
+		Assert::AreEqual(8, list[0]);
+	}
+
+	TEST_METHOD(test_last_index_of)
+	{
+		Assert::AreEqual(2, list.last_index_of(2));
+		list[4] = 2;
+		Assert::AreEqual(4, list.last_index_of(2));
+		Assert::AreEqual(-1, list.last_index_of(7));
+	}
+
+	TEST_METHOD(test_compare)
+	{
+		Array_list<int> a(list), b(list);
+		Assert::IsTrue(a == list);
+		Assert::IsTrue(b == list);
+		a[0] = 8;
+		b.erase(5);
+		Assert::IsTrue(list < a);
+		Assert::IsTrue(b < list);
+	}
+
+	TEST_METHOD(test_swap)
+	{
+		Array_list<int> a(list), b(list), c;
+		c.swap(b);
+		Assert::IsTrue(a == c);
+	}
+
+	TEST_METHOD(test_reserve)
+	{
+		list.reserve(4);
+		Assert::AreEqual(8, list.capacity());
+		list.reserve(10);
+		Assert::AreEqual(10, list.capacity());
+	}
+
+	TEST_METHOD(clear_test)
+	{
+		list.clear();
+		Assert::AreEqual(0, list.size());
+		Assert::AreEqual(8, list.capacity());
+	}
+
+	TEST_METHOD(test_remove_range)
+	{
+		list.remove_range(1, 4);
+		Assert::AreEqual(3, list.size());
+		Array_list<int> a(3);
+		a.push_back(0);
+		a.push_back(4);
+		a.push_back(5);
+		Assert::IsTrue(a == list);
 	}
 
 };
