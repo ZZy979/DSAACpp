@@ -27,5 +27,8 @@
     <ClCompile Include="Linear_list\Linked_list_tests.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Linear_list\Circular_linked_list_tests.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

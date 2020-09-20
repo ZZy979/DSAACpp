@@ -1,50 +1,50 @@
 #include <string>
 #include "CppUnitTest.h"
-#include "Linear_list/Linked_list.h"
+#include "Linear_list/Circular_linked_list.h"
 
 using std::string;
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace Tests
 {
-TEST_CLASS(Linked_list_tests)
+TEST_CLASS(Circular_linked_list_tests)
 {
-	Linked_list<int> list;
+	Circular_linked_list<int> list;
 public:
 
 	TEST_METHOD_INITIALIZE(setup_class)
 	{
 		// [0, 1, 2, 3, 4, 5]
-		list = Linked_list<int>();
+		list = Circular_linked_list<int>();
 		for (int i = 0; i < 6; ++i)
 			list.push_back(i);
 	}
 
 	TEST_METHOD(test_constructor)
 	{
-		Linear_list<double>* a = new Linked_list<double>();
+		Linear_list<double>* a = new Circular_linked_list<double>();
 		delete a;
-		Linked_list<int> b(list);
+		Circular_linked_list<int> b(list);
 		Assert::IsTrue(b == list);
 	}
 
 	TEST_METHOD(test_copy)
 	{
-		Linked_list<int>* a = new Linked_list<int>();
+		Circular_linked_list<int>* a = new Circular_linked_list<int>();
 		for (int i = 0; i < 4; ++i)
 			a->push_back(i);
-		Linked_list<int> b;
+		Circular_linked_list<int> b;
 		b = *a;
 		delete a;
 		Assert::AreEqual(4, b.size());
-		Linked_list<int>::iterator p = b.begin();
+		Circular_linked_list<int>::iterator p = b.begin();
 		for (int i = 0; i < 4; ++i, ++p)
 			Assert::AreEqual(i, *p);
 	}
 
 	TEST_METHOD(test_size_and_empty)
 	{
-		Linked_list<int> l;
+		Circular_linked_list<int> l;
 		Assert::AreEqual(0, l.size());
 		Assert::IsTrue(l.empty());
 		l.insert(0, 8);
@@ -75,7 +75,7 @@ public:
 
 	TEST_METHOD(test_push_back)
 	{
-		Linked_list<int> l;
+		Circular_linked_list<int> l;
 		Assert::AreEqual(0, l.size());
 		l.push_back(8);
 		Assert::AreEqual(1, l.size());
@@ -87,7 +87,7 @@ public:
 
 	TEST_METHOD(test_pop_back)
 	{
-		Linked_list<int> l;
+		Circular_linked_list<int> l;
 		l.push_back(8);
 		Assert::AreEqual(1, l.size());
 		l.pop_back();
@@ -133,7 +133,7 @@ public:
 	TEST_METHOD(test_iterator)
 	{
 		int v = 0;
-		for (Linked_list<int>::iterator p = list.begin(); p != list.end(); ++p)
+		for (Circular_linked_list<int>::iterator p = list.begin(); p != list.end(); ++p)
 			Assert::AreEqual(v++, *p);
 	}
 
@@ -164,7 +164,7 @@ public:
 
 	TEST_METHOD(test_compare)
 	{
-		Linked_list<int> a(list), b(list);
+		Circular_linked_list<int> a(list), b(list);
 		Assert::IsTrue(a == list);
 		Assert::IsTrue(b == list);
 		a.set(0, 8);
@@ -175,7 +175,7 @@ public:
 
 	TEST_METHOD(test_swap)
 	{
-		Linked_list<int> a(list), b(list), c;
+		Circular_linked_list<int> a(list), b(list), c;
 		c.swap(b);
 		Assert::IsTrue(a == c);
 	}
@@ -184,7 +184,7 @@ public:
 	{
 		list.remove_range(1, 4);
 		Assert::AreEqual(3, list.size());
-		Linked_list<int> l;
+		Circular_linked_list<int> l;
 		l.push_back(0);
 		l.push_back(4);
 		l.push_back(5);

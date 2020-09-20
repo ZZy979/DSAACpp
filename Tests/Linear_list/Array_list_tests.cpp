@@ -34,6 +34,19 @@ public:
 		Assert::ExpectException<invalid_argument>([&b]() { b = Array_list<int>(-1); });
 	}
 
+	TEST_METHOD(test_copy)
+	{
+		Array_list<int>* a = new Array_list<int>(4);
+		for (int i = 0; i < 4; ++i)
+			a->push_back(i);
+		Array_list<int> b;
+		b = *a;
+		delete a;
+		Assert::AreEqual(4, b.size());
+		for (int i = 0; i < 4; ++i)
+			Assert::AreEqual(i, b[i]);
+	}
+
 	TEST_METHOD(test_capacity)
 	{
 		Array_list<int> a(8), b;

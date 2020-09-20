@@ -35,5 +35,11 @@
     <ClInclude Include="Linear_list\Linked_list.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Linear_list\List_node.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Linear_list\Circular_linked_list.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
