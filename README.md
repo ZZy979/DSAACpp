@@ -6,9 +6,10 @@
 Visual Studio 2019
 
 ## 目录结构
-解决方案包含ADT和Tests两个项目
+解决方案包含ADT, Tests和Applications三个项目
 * ADT：包含所有数据结构类的代码
 * Tests：ADT对应的单元测试（使用[Microsoft Unit Testing框架](https://docs.microsoft.com/zh-cn/visualstudio/test/how-to-use-microsoft-test-framework-for-cpp?view=vs-2019)）
+* Applications：ADT的应用（也是单元测试项目）
 
 ## 数据结构
 ADT项目包含的数据结构类如下
@@ -19,3 +20,8 @@ ADT项目包含的数据结构类如下
     * [Linked_list](ADT/Linear_list/Linked_list.h)：不带头节点的单向链表
     * [Circular_linked_list](ADT/Linear_list/Circular_linked_list.h)：带头节点的单向循环链表
 * [utils.h](ADT/utils.h)：辅助函数
+
+## 应用
+Applications项目包含的数据结构应用如下
+* Linear_list：线性表
+    * [bin_sort](Applications/Linear_list/bin_sort.h)：箱子排序

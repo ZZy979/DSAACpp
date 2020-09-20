@@ -206,16 +206,19 @@ void Linked_list<T>::insert(int index, const T& value)
 		oss << "index = " << index << ", size = " << sz;
 		throw out_of_range(oss.str());
 	}
-	if (index == 0)
+	if (index == 0) {
 		first = new List_node<T>(value, first);
+		if (sz == 0)
+			last = first;
+	}
+	else if (index == sz)
+		push_back(value);
 	else {
 		// 找到新元素的前驱节点
 		List_node<T>* p = first;
 		for (int i = 0; i < index - 1; ++i)
 			p = p->next;
 		p->next = new List_node<T>(value, p->next);
-		if (index == sz)
-			last = p->next;
 	}
 	++sz;
 }
@@ -228,6 +231,8 @@ void Linked_list<T>::erase(int index)
 	if (index == 0) {
 		delete_node = first;
 		first = first->next;
+		if (sz == 1)
+			last = nullptr;
 	}
 	else {
 		// 找到待删除元素的前驱节点
@@ -236,6 +241,8 @@ void Linked_list<T>::erase(int index)
 			p = p->next;
 		delete_node = p->next;
 		p->next = p->next->next;
+		if (index == sz - 1)
+			last = p;
 	}
 	delete delete_node;
 	--sz;
