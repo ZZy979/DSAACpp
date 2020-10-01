@@ -163,10 +163,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Linear_list\bin_sort_tests.cpp" />
+    <ClCompile Include="Linear_list\radix_sort_tests.cpp" />
     <ClCompile Include="Linear_list\student.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Linear_list\bin_sort.h" />
+    <ClInclude Include="Linear_list\radix_sort.h" />
     <ClInclude Include="Linear_list\student.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

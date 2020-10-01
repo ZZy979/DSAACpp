@@ -21,12 +21,18 @@
     <ClCompile Include="Linear_list\student.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Linear_list\radix_sort_tests.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Linear_list\bin_sort.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Linear_list\student.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Linear_list\radix_sort.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

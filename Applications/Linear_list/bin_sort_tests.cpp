@@ -68,7 +68,7 @@ public:
 	TEST_METHOD(test_performance)
 	{
 		srand(42);
-		vector<int> sizes{ 10000, 20000, 30000, 40000, 50000 };
+		vector<int> sizes{ 100, 1000, 10000 };
 		int max_score = 100;
 		for (int size : sizes) {
 			Linked_list<Student> students;
