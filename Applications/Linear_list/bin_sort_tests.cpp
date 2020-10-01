@@ -3,6 +3,7 @@
 #include <ctime>
 #include <sstream>
 #include <vector>
+#include "student.h"
 #include "bin_sort.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -78,7 +79,7 @@ public:
 			clock_t end = clock();
 			ostringstream oss;
 			oss << "size = " << size << ", time = "
-				<< (double(end) - start) / (CLOCKS_PER_SEC / 1000.0) << " ms" << endl;
+				<< (double(end) - start) / (CLOCKS_PER_SEC / 1000.0) << " ms" << std::endl;
 			Logger::WriteMessage(oss.str().c_str());
 		}
 	}

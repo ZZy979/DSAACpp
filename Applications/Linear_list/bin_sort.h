@@ -1,31 +1,33 @@
 #pragma once
-#include <iostream>
-#include <string>
 #include "Linear_list/Linked_list.h"
 
-using std::ostream;
-using std::endl;
-using std::string;
-
 // 线性表的应用：箱子排序
-
-// 学生记录
-struct Student
+// 使用f将每个元素转换为整数，范围为[0, max]
+template<class T, class F>
+void bin_sort(Linked_list<T>& list, F f, int max)
 {
-	string name;
-	int score;
+	vector<Linked_list<T> > bins(max + 1, Linked_list<T>());
 
-	Student(const string& n, int s) :name(n), score(s) {}
+	// 把元素从链表中取出，分配到箱子里
+	int n = list.size();
+	for (int i = 0; i < n; ++i) {
+		T elem = list[0];
+		list.erase(0);
+		bins[f(elem)].insert(0, elem);
+	}
 
-	bool operator==(const Student& s) const { return score == s.score; }
+	// 从箱子中收集元素
+	for (int i = max; i >= 0; --i)
+		while (!bins[i].empty()) {
+			T elem = bins[i][0];
+			bins[i].erase(0);
+			list.insert(0, elem);
+		}
+}
 
-	bool operator!=(const Student& s) const { return score != s.score; }
-
-	operator int() const { return score; }
-
-};
-
-ostream& operator<<(ostream& out, const Student& s);
-
-// 箱子排序：将students按分数排序
-void bin_sort(Linked_list<Student>& students, int max_score);
+// 箱子排序，使用int(t)将元素转换为整数，范围为[0, max]
+template<class T>
+void bin_sort(Linked_list<T>& list, int max)
+{
+	bin_sort(list, [](T t) { return int(t); }, max);
+}
