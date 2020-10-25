@@ -11,8 +11,7 @@ TEST_CLASS(Array_list_tests)
 {
 	Array_list<int> list;
 public:
-
-	TEST_METHOD_INITIALIZE(setup_class)
+	TEST_METHOD_INITIALIZE(setup)
 	{
 		// [0, 1, 2, 3, 4, 5], capacity = 8
 		// 自定义类包含动态数组指针时一定要自定义赋值运算符！！！否则会被内存越界坑一下午_(:з」∠)_

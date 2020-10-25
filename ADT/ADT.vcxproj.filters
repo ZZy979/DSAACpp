@@ -41,5 +41,8 @@
     <ClInclude Include="Linear_list\Circular_linked_list.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Matrix\Matrix.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

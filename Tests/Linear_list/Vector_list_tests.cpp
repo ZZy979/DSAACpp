@@ -11,8 +11,7 @@ TEST_CLASS(Vector_list_tests)
 {
 	Vector_list<int> list;
 public:
-
-	TEST_METHOD_INITIALIZE(setup_class)
+	TEST_METHOD_INITIALIZE(setup)
 	{
 		// [0, 1, 2, 3, 4, 5]
 		list = Vector_list<int>(2);

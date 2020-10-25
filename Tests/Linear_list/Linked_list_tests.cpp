@@ -11,8 +11,7 @@ TEST_CLASS(Linked_list_tests)
 {
 	Linked_list<int> list;
 public:
-
-	TEST_METHOD_INITIALIZE(setup_class)
+	TEST_METHOD_INITIALIZE(setup)
 	{
 		// [0, 1, 2, 3, 4, 5]
 		list = Linked_list<int>();
