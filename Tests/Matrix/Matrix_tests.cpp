@@ -83,5 +83,12 @@ public:
 		Matrix<int> m2(2, 4);
 		Assert::ExpectException<invalid_argument>([this, &m2]() { (*matrix) * m2; });
 	}
+
+	TEST_METHOD(test_transpose)
+	{
+		int data[] = { 0, 3, 1, 4, 2, 5 };
+		Matrix<int> transpose(3, 2, data);
+		Assert::IsTrue(matrix->transpose() == transpose);
+	}
 };
 }

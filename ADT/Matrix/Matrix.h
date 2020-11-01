@@ -41,6 +41,7 @@ public:
 	Matrix<T> operator-(const Matrix<T>& m) const;
 	Matrix<T> operator*(const Matrix<T>& m) const;
 	bool operator==(const Matrix<T>& m) const;
+	Matrix<T> transpose() const;
 };
 
 template<class T>
@@ -194,4 +195,14 @@ template<class T>
 bool Matrix<T>::operator==(const Matrix<T>& m) const
 {
 	return r == m.r && c == m.c && equal(element, element + r * c, m.element);
+}
+
+template<class T>
+Matrix<T> Matrix<T>::transpose() const
+{
+	Matrix<T> t(c, r);
+	for (int i = 0; i < r; ++i)
+		for (int j = 0; j < c; ++j)
+			t.element[j * r + i] = element[i * c + j];
+	return t;
 }
