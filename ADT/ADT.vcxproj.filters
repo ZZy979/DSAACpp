@@ -44,5 +44,11 @@
     <ClInclude Include="Matrix\Matrix.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Stack\Stack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack\Array_stack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

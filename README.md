@@ -21,6 +21,9 @@ ADT项目包含的数据结构类如下
     * [Circular_linked_list](ADT/Linear_list/Circular_linked_list.h)：带头节点的单向循环链表
 * Matrix：矩阵
     * [Matrix](ADT/Matrix/Matrix.h)：矩阵
+* Stack：栈
+    * [Stack](ADT/Stack/Stack.h)：栈抽象基类
+    * [Array_stack](ADT/Stack/Array_stack.h)：栈的数组实现
 * [utils.h](ADT/utils.h)：辅助函数
 
 ## 应用

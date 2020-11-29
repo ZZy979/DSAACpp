@@ -29,6 +29,8 @@
     <ClInclude Include="Linear_list\List_node.h" />
     <ClInclude Include="Linear_list\Vector_list.h" />
     <ClInclude Include="Matrix\Matrix.h" />
+    <ClInclude Include="Stack\Array_stack.h" />
+    <ClInclude Include="Stack\Stack.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

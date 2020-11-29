@@ -162,6 +162,7 @@
     <ClCompile Include="Linear_list\Linked_list_tests.cpp" />
     <ClCompile Include="Linear_list\Vector_list_tests.cpp" />
     <ClCompile Include="Matrix\Matrix_tests.cpp" />
+    <ClCompile Include="Stack\Array_stack_tests.cpp" />
     <ClCompile Include="utils_tests.cpp" />
   </ItemGroup>
   <ItemGroup>
