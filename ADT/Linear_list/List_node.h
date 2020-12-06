@@ -9,7 +9,7 @@ struct List_node
 
 	List_node() :value(), next(nullptr) {}
 
-	explicit List_node(const T& l) :value(l), next(nullptr) {}
+	explicit List_node(const T& v) :value(v), next(nullptr) {}
 
-	List_node(const T& l, List_node<T>* p) :value(l), next(p) {}
+	List_node(const T& v, List_node<T>* p) :value(v), next(p) {}
 };

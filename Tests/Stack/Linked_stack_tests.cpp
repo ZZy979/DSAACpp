@@ -1,13 +1,13 @@
 #include "CppUnitTest.h"
-#include "Stack/Array_stack.h"
+#include "Stack/Linked_stack.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace Tests
 {
-TEST_CLASS(Array_stack_tests)
+TEST_CLASS(Linked_stack_tests)
 {
-	Array_stack<int> stack;
+	Linked_stack<int> stack;
 public:
 	TEST_METHOD_INITIALIZE(setup)
 	{
@@ -20,18 +20,17 @@ public:
 
 	TEST_METHOD(test_constructor)
 	{
-		Stack<double>* a = new Array_stack<double>(20);
+		Stack<double>* a = new Linked_stack<double>();
 		delete a;
-		Array_stack<int> b(stack);
-		Assert::ExpectException<invalid_argument>([&b]() { b = Array_stack<int>(-1); });
+		Linked_stack<int> b(stack);
 	}
 
 	TEST_METHOD(test_copy)
 	{
-		Array_stack<int> *a = new Array_stack<int>();
+		Linked_stack<int>* a = new Linked_stack<int>();
 		for (int i = 0; i < 4; ++i)
 			a->push(i);
-		Array_stack<int> b;
+		Linked_stack<int> b;
 		b = *a;
 		delete a;
 		Assert::AreEqual(4, b.size());
@@ -43,7 +42,7 @@ public:
 
 	TEST_METHOD(test_size_and_empty)
 	{
-		Array_stack<int> a;
+		Linked_stack<int> a;
 		Assert::AreEqual(0, a.size());
 		Assert::IsTrue(a.empty());
 		a.push(8);

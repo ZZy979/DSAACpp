@@ -50,5 +50,8 @@
     <ClInclude Include="Stack\Array_stack.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Stack\Linked_stack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -24,6 +24,7 @@ ADT项目包含的数据结构类如下
 * Stack：栈
     * [Stack](ADT/Stack/Stack.h)：栈抽象基类
     * [Array_stack](ADT/Stack/Array_stack.h)：栈的数组实现
+    * [Linked_stack](ADT/Stack/Linked_stack.h)：栈的链表实现
 * [utils.h](ADT/utils.h)：辅助函数
 
 ## 应用
