@@ -32,3 +32,5 @@ Applications项目包含的数据结构应用如下
 * Linear_list：线性表
     * [bin_sort](Applications/Linear_list/bin_sort.h)：箱子排序
     * [radix_sort](Applications/Linear_list/radix_sort.h)：基数排序
+* Stack：栈
+    * [parenthesis_matching](Applications/Stack/parenthesis_matching.h)：括号匹配
