@@ -40,6 +40,6 @@ public:
 		print_matched_parentheses("", oss);
 		Assert::AreEqual(string(), oss.str());
 	}
-};
 
+};
 }

@@ -14,7 +14,6 @@ class Linked_stack : public Stack<T>
 	int sz;  // ÔªËØ¸öÊý
 
 	void delete_top();
-	void clear();
 	void copy(const Linked_stack<T>& s);
 public:
 	Linked_stack() :tp(nullptr), sz(0) {}
@@ -33,6 +32,7 @@ public:
 	void pop() override;
 	T& top() override;
 	const T& top() const override;
+	void clear() override;
 
 };
 
@@ -42,13 +42,6 @@ void Linked_stack<T>::delete_top()
 	List_node<T>* next = tp->next;
 	delete tp;
 	tp = next;
-}
-
-template<class T>
-void Linked_stack<T>::clear()
-{
-	while (tp)
-		delete_top();
 }
 
 template<class T>
@@ -107,4 +100,12 @@ const T& Linked_stack<T>::top() const
 {
 	check_empty();
 	return tp->value;
+}
+
+template<class T>
+void Linked_stack<T>::clear()
+{
+	while (tp)
+		delete_top();
+	sz = 0;
 }

@@ -30,6 +30,12 @@
     <ClCompile Include="Stack\parenthesis_matching_tests.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Stack\towers_of_hanoi.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Stack\towers_of_hanoi_tests.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Linear_list\bin_sort.h">
@@ -42,6 +48,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Stack\parenthesis_matching.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack\towers_of_hanoi.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

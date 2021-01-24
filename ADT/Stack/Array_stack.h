@@ -33,6 +33,8 @@ public:
 	T& top() override;
 	const T& top() const override;
 
+	void clear() override { sz = 0; }
+
 };
 
 // 构造函数，如果capacity<=0则抛出invalid_argument异常

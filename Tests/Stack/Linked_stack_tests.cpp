@@ -62,17 +62,21 @@ public:
 		stack.pop();
 		Assert::AreEqual(4, stack.size());
 		Assert::AreEqual(6, stack.top());
-		while (!stack.empty())
-			stack.pop();
+		stack.clear();
 		Assert::ExpectException<Stack_empty>([this]() { stack.pop(); });
 	}
 
 	TEST_METHOD(test_top)
 	{
 		Assert::AreEqual(8, stack.top());
-		while (!stack.empty())
-			stack.pop();
+		stack.clear();
 		Assert::ExpectException<Stack_empty>([this]() { stack.top(); });
+	}
+
+	TEST_METHOD(test_clear)
+	{
+		stack.clear();
+		Assert::IsTrue(stack.empty());
 	}
 
 };
