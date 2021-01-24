@@ -33,5 +33,5 @@ Applications项目包含的数据结构应用如下
     * [箱子排序](Applications/Linear_list/bin_sort.h)
     * [基数排序](Applications/Linear_list/radix_sort.h)
 * Stack：栈
-    * [括号匹配](Applications/Stack/parenthesis_matching.h)
-    * [汉诺塔](Applications/Stack/towers_of_hanoi.h)
+    * [括号匹配](Applications/Stack/parenthesis_matching.cpp)
+    * [汉诺塔](Applications/Stack/towers_of_hanoi.cpp)
