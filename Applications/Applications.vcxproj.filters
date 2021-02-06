@@ -36,6 +36,12 @@
     <ClCompile Include="Stack\towers_of_hanoi_tests.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Stack\rearranging_railroad_cars.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Stack\rearranging_railroad_cars_tests.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Linear_list\bin_sort.h">
@@ -51,6 +57,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Stack\towers_of_hanoi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack\rearranging_railroad_cars.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

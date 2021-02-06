@@ -167,6 +167,8 @@
     <ClCompile Include="Linear_list\student.cpp" />
     <ClCompile Include="Stack\parenthesis_matching.cpp" />
     <ClCompile Include="Stack\parenthesis_matching_tests.cpp" />
+    <ClCompile Include="Stack\rearranging_railroad_cars.cpp" />
+    <ClCompile Include="Stack\rearranging_railroad_cars_tests.cpp" />
     <ClCompile Include="Stack\towers_of_hanoi.cpp" />
     <ClCompile Include="Stack\towers_of_hanoi_tests.cpp" />
   </ItemGroup>
@@ -175,6 +177,7 @@
     <ClInclude Include="Linear_list\radix_sort.h" />
     <ClInclude Include="Linear_list\student.h" />
     <ClInclude Include="Stack\parenthesis_matching.h" />
+    <ClInclude Include="Stack\rearranging_railroad_cars.h" />
     <ClInclude Include="Stack\towers_of_hanoi.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
