@@ -42,6 +42,18 @@
     <ClCompile Include="Stack\rearranging_railroad_cars_tests.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Stack\switch_box_routing.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Stack\switch_box_routing_tests.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Stack\offline_equivalence_class.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Stack\offline_equivalence_class_tests.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Linear_list\bin_sort.h">
@@ -60,6 +72,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Stack\rearranging_railroad_cars.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack\switch_box_routing.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack\offline_equivalence_class.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

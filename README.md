@@ -36,3 +36,5 @@ Applications项目包含的数据结构应用如下
     * [括号匹配](Applications/Stack/parenthesis_matching.cpp)
     * [汉诺塔](Applications/Stack/towers_of_hanoi.cpp)
     * [列车车厢重排](Applications/Stack/rearranging_railroad_cars.cpp)
+    * [开关盒布线](Applications/Stack/switch_box_routing.cpp)
+    * [离线等价类](Applications/Stack/offline_equivalence_class.cpp)

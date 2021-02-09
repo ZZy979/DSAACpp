@@ -165,10 +165,14 @@
     <ClCompile Include="Linear_list\bin_sort_tests.cpp" />
     <ClCompile Include="Linear_list\radix_sort_tests.cpp" />
     <ClCompile Include="Linear_list\student.cpp" />
+    <ClCompile Include="Stack\offline_equivalence_class.cpp" />
+    <ClCompile Include="Stack\offline_equivalence_class_tests.cpp" />
     <ClCompile Include="Stack\parenthesis_matching.cpp" />
     <ClCompile Include="Stack\parenthesis_matching_tests.cpp" />
     <ClCompile Include="Stack\rearranging_railroad_cars.cpp" />
     <ClCompile Include="Stack\rearranging_railroad_cars_tests.cpp" />
+    <ClCompile Include="Stack\switch_box_routing.cpp" />
+    <ClCompile Include="Stack\switch_box_routing_tests.cpp" />
     <ClCompile Include="Stack\towers_of_hanoi.cpp" />
     <ClCompile Include="Stack\towers_of_hanoi_tests.cpp" />
   </ItemGroup>
@@ -176,8 +180,10 @@
     <ClInclude Include="Linear_list\bin_sort.h" />
     <ClInclude Include="Linear_list\radix_sort.h" />
     <ClInclude Include="Linear_list\student.h" />
+    <ClInclude Include="Stack\offline_equivalence_class.h" />
     <ClInclude Include="Stack\parenthesis_matching.h" />
     <ClInclude Include="Stack\rearranging_railroad_cars.h" />
+    <ClInclude Include="Stack\switch_box_routing.h" />
     <ClInclude Include="Stack\towers_of_hanoi.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
