@@ -3,12 +3,12 @@
 原书链接：<https://www.cise.ufl.edu/~sahni/dsaac/>
 
 ## 环境
-Visual Studio 2019
+Visual Studio 2022
 
 ## 目录结构
 解决方案包含ADT, Tests和Applications三个项目
 * ADT：包含所有数据结构类的代码
-* Tests：ADT对应的单元测试（使用[Microsoft Unit Testing框架](https://docs.microsoft.com/zh-cn/visualstudio/test/how-to-use-microsoft-test-framework-for-cpp?view=vs-2019)）
+* Tests：ADT对应的单元测试（使用[Microsoft Unit Testing框架](https://docs.microsoft.com/zh-cn/visualstudio/test/how-to-use-microsoft-test-framework-for-cpp?view=vs-2022)）
 * Applications：ADT的应用（也是单元测试项目）
 
 ## 数据结构
