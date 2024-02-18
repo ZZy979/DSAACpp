@@ -3,6 +3,6 @@
 
 using std::vector;
 
-// 栈的应用：离线等价类
-// 输入元素个数n、r个关系对，返回等价类个数
+// 鏍堢殑搴旂敤锛氱绾跨瓑浠风被
+// 杈撳叆鍏冪礌涓暟n銆乺涓叧绯诲锛岃繑鍥炵瓑浠风被涓暟
 int equivalence_class(int n, vector<vector<int>> relations);

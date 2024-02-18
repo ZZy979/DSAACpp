@@ -12,25 +12,25 @@ int log(int a, int b)
 	return int(std::log(b) / std::log(a));
 }
 
-// ÏßĞÔ±íµÄÓ¦ÓÃ£º»ùÊıÅÅĞò
-// Ê¹ÓÃf½«Ã¿¸öÔªËØ×ª»»ÎªÕûÊı£¬»ùÊıÎªr
+// çº¿æ€§è¡¨çš„åº”ç”¨ï¼šåŸºæ•°æ’åº
+// ä½¿ç”¨få°†æ¯ä¸ªå…ƒç´ è½¬æ¢ä¸ºæ•´æ•°ï¼ŒåŸºæ•°ä¸ºr
 template<class T, class F>
 void radix_sort(Linked_list<T>& list, F f, int r)
 {
 	if (r < 2)
-		throw std::invalid_argument("»ùÊıÖÁÉÙÎª2");
+		throw std::invalid_argument("åŸºæ•°è‡³å°‘ä¸º2");
 	vector<int> logs;
 	for (T& x : list)
 		if (f(x) > 0)
 			logs.push_back(log(r, f(x)));
 	int d = *std::max_element(logs.begin(), logs.end());
-	// ÔªËØ·¶Î§[0, r^(d+1)-1]
-	// ÀıÈçr=10,d=2£¬·¶Î§Îª[0, 999]
+	// å…ƒç´ èŒƒå›´[0, r^(d+1)-1]
+	// ä¾‹å¦‚r=10,d=2ï¼ŒèŒƒå›´ä¸º[0, 999]
 	for (int k = 0, p = 1; k <= d; ++k, p *= r)
 		bin_sort(list, [r, p](T t) { return t / p % r; }, r - 1);
 }
 
-// »ùÊıÅÅĞò£¬Ê¹ÓÃint(t)½«ÔªËØ×ª»»ÎªÕûÊı£¬»ùÊıÎªr
+// åŸºæ•°æ’åºï¼Œä½¿ç”¨int(t)å°†å…ƒç´ è½¬æ¢ä¸ºæ•´æ•°ï¼ŒåŸºæ•°ä¸ºr
 template<class T>
 void radix_sort(Linked_list<T>& list, int r)
 {

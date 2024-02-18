@@ -6,8 +6,8 @@ using std::copy;
 using std::min;
 using std::invalid_argument;
 
-// ¸Ä±äÒ»Î¬Êı×éaµÄ³¤¶È
-// Èç¹ûnew_length<=0ÔòÅ×³öinvalid_argumentÒì³£
+// æ”¹å˜ä¸€ç»´æ•°ç»„açš„é•¿åº¦
+// å¦‚æœnew_length<=0åˆ™æŠ›å‡ºinvalid_argumentå¼‚å¸¸
 template<class T>
 void change_length_1d(T*& a, int old_length, int new_length)
 {
@@ -19,45 +19,45 @@ void change_length_1d(T*& a, int old_length, int new_length)
 	a = temp;
 }
 
-// ´´½¨Ò»¸ö¶şÎ¬Êı×é
+// åˆ›å»ºä¸€ä¸ªäºŒç»´æ•°ç»„
 template<class T>
 void make_2d_array(T**& a, int n_rows, int n_columns)
 {
-	// ´´½¨ĞĞÖ¸Õë
+	// åˆ›å»ºè¡ŒæŒ‡é’ˆ
 	a = new T*[n_rows];
 
-	// ÎªÃ¿Ò»ĞĞ·ÖÅä¿Õ¼ä
+	// ä¸ºæ¯ä¸€è¡Œåˆ†é…ç©ºé—´
 	for (int i = 0; i < n_rows; ++i)
 		a[i] = new T[n_columns];
 }
 
-// ´´½¨Ò»¸ö¶şÎ¬Êı×é
+// åˆ›å»ºä¸€ä¸ªäºŒç»´æ•°ç»„
 template<class T>
 void make_2d_array(T**& a, int n_rows, const int n_columns[])
 {
-	// ´´½¨ĞĞÖ¸Õë
+	// åˆ›å»ºè¡ŒæŒ‡é’ˆ
 	a = new T*[n_rows];
 
-	// ÎªÃ¿Ò»ĞĞ·ÖÅä¿Õ¼ä
+	// ä¸ºæ¯ä¸€è¡Œåˆ†é…ç©ºé—´
 	for (int i = 0; i < n_rows; ++i)
 		a[i] = new T[n_columns[i]];
 }
 
-// É¾³ı¶şÎ¬Êı×éa
+// åˆ é™¤äºŒç»´æ•°ç»„a
 template<class T>
 void delete_2d_array(T**& a, int n_rows)
 {
-	// É¾³ıĞĞÊı×é¿Õ¼ä
+	// åˆ é™¤è¡Œæ•°ç»„ç©ºé—´
 	for (int i = 0; i < n_rows; ++i)
 		delete[] a[i];
 
-	// É¾³ıĞĞÖ¸Õë
+	// åˆ é™¤è¡ŒæŒ‡é’ˆ
 	delete[] a;
 	a = nullptr;
 }
 
-// ¸Ä±ä¶şÎ¬Êı×éaµÄ³¤¶È
-// Èç¹ûnew_n_rows<=0»ònew_n_columns<=0ÔòÅ×³öinvalid_argumentÒì³£
+// æ”¹å˜äºŒç»´æ•°ç»„açš„é•¿åº¦
+// å¦‚æœnew_n_rows<=0æˆ–new_n_columns<=0åˆ™æŠ›å‡ºinvalid_argumentå¼‚å¸¸
 template<class T>
 void change_length_2d(T**& a, int old_n_rows, int old_n_columns,
 	int new_n_rows, int new_n_columns)
@@ -72,8 +72,8 @@ void change_length_2d(T**& a, int old_n_rows, int old_n_columns,
 	a = temp;
 }
 
-// ¸Ä±ä¶şÎ¬Êı×éaµÄ³¤¶È£¬Ã¿Ò»Î¬µÄ³¤¶È¿ÉÒÔ²»Í¬
-// Èç¹ûnew_n_rows<=0»ònew_n_columns[i]<=0ÔòÅ×³öinvalid_argumentÒì³£
+// æ”¹å˜äºŒç»´æ•°ç»„açš„é•¿åº¦ï¼Œæ¯ä¸€ç»´çš„é•¿åº¦å¯ä»¥ä¸åŒ
+// å¦‚æœnew_n_rows<=0æˆ–new_n_columns[i]<=0åˆ™æŠ›å‡ºinvalid_argumentå¼‚å¸¸
 template<class T>
 void change_length_2d(T**& a, int old_n_rows, const int old_n_columns[],
 	int new_n_rows, const int new_n_columns[])

@@ -5,7 +5,7 @@
 using std::ostream;
 using std::string;
 
-// Ñ§Éú¼ÇÂ¼
+// å­¦ç”Ÿè®°å½•
 struct Student
 {
 	string name;

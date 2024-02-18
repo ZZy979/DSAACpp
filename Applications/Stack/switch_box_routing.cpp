@@ -7,7 +7,7 @@ bool check_box(vector<int> net)
 	for (int i = 0; i < net.size(); ++i)
 		if (!s.empty())
 			if (net[i] == net[s.top()])
-				// ¹Ü½Åi¿É²¼Ïß
+				// ç®¡è„šiå¯å¸ƒçº¿
 				s.pop();
 			else
 				s.push(i);

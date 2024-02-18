@@ -11,16 +11,16 @@ void print_matched_parentheses(string expr, ostream& os)
 			s.push(i);
 		else if (expr[i] == ')') {
 			try {
-				// ´ÓÕ»ÖĞÉ¾³ıÆ¥ÅäµÄ×óÀ¨ºÅ
+				// ä»æ ˆä¸­åˆ é™¤åŒ¹é…çš„å·¦æ‹¬å·
 				os << s.top() << " matches " << i << endl;
 				s.pop();
 			}
 			catch (Stack_empty) {
-				// Õ»Îª¿Õ£¬Ã»ÓĞÆ¥ÅäµÄ×óÀ¨ºÅ
+				// æ ˆä¸ºç©ºï¼Œæ²¡æœ‰åŒ¹é…çš„å·¦æ‹¬å·
 				os << "No match for right parenthesis at " << i << endl;
 			}
 		}
-	// Õ»²»Îª¿Õ£¬Ê£ÓàÔÚÕ»ÖĞµÄ×óÀ¨ºÅÊÇ²»Æ¥ÅäµÄ
+	// æ ˆä¸ä¸ºç©ºï¼Œå‰©ä½™åœ¨æ ˆä¸­çš„å·¦æ‹¬å·æ˜¯ä¸åŒ¹é…çš„
 	while (!s.empty()) {
 		os << "No match for left parenthesis at " << s.top() << endl;
 		s.pop();

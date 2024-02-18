@@ -5,6 +5,6 @@
 using std::vector;
 using std::string;
 
-// Õ»µÄÓ¦ÓÃ£ºººÅµËþ
-// ½«n¸öÅÌ×Ó´ÓËþ0ÒÆµ½Ëþ2£¬ÓÃËþ1×÷ÎªÖÐ×ª£¬·µ»ØÒÆ¶¯²½Öè
+// æ ˆçš„åº”ç”¨ï¼šæ±‰è¯ºå¡”
+// å°†nä¸ªç›˜å­ä»Žå¡”0ç§»åˆ°å¡”2ï¼Œç”¨å¡”1ä½œä¸ºä¸­è½¬ï¼Œè¿”å›žç§»åŠ¨æ­¥éª¤
 vector<string> hanoi(int n);

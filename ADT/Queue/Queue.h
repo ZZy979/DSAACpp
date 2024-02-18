@@ -9,7 +9,7 @@ public:
 	Queue_empty() :out_of_range("Empty Queue") {}
 };
 
-// 抽象类Queue，队列ADT
+// 鎶借薄绫籕ueue锛岄槦鍒桝DT
 template<class T>
 class Queue
 {

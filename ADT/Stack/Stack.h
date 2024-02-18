@@ -9,7 +9,7 @@ public:
 	Stack_empty() :out_of_range("Empty Stack") {}
 };
 
-// ³éÏóÀàStack£¬Õ»ADT
+// æŠ½è±¡ç±»Stackï¼Œæ ˆADT
 template<class T>
 class Stack
 {

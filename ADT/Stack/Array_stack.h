@@ -9,13 +9,13 @@ using std::ostringstream;
 using std::invalid_argument;
 using std::copy;
 
-// Õ»µÄÊı×éÊµÏÖ
+// æ ˆçš„æ•°ç»„å®ç°
 template<class T>
 class Array_stack : public Stack<T>
 {
-	T* element;     // ´æ´¢ÔªËØµÄÒ»Î¬Êı×é
-	int space;      // Êı×éµÄÈİÁ¿
-	int sz;         // ÔªËØ¸öÊı
+	T* element;     // å­˜å‚¨å…ƒç´ çš„ä¸€ç»´æ•°ç»„
+	int space;      // æ•°ç»„çš„å®¹é‡
+	int sz;         // å…ƒç´ ä¸ªæ•°
 public:
 	explicit Array_stack(int capacity = 10);
 	Array_stack(const Array_stack<T>& s);
@@ -37,7 +37,7 @@ public:
 
 };
 
-// ¹¹Ôìº¯Êı£¬Èç¹ûcapacity<=0ÔòÅ×³öinvalid_argumentÒì³£
+// æ„é€ å‡½æ•°ï¼Œå¦‚æœcapacity<=0åˆ™æŠ›å‡ºinvalid_argumentå¼‚å¸¸
 template<class T>
 Array_stack<T>::Array_stack(int capacity)
 {

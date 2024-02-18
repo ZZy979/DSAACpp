@@ -6,8 +6,8 @@ using std::endl;
 vector<Array_stack<int> > tracks;
 int num_cars = 0;
 int next_car = 0;
-int smallest_car = -1;  // »º³å¹ìµÀÖĞ±àºÅ×îĞ¡µÄ³µÏá
-int smallest_track = -1;  // ±àºÅ×îĞ¡µÄ³µÏáËùÔÚµÄ»º³å¹ìµÀ
+int smallest_car = -1;  // ç¼“å†²è½¨é“ä¸­ç¼–å·æœ€å°çš„è½¦å¢
+int smallest_track = -1;  // ç¼–å·æœ€å°çš„è½¦å¢æ‰€åœ¨çš„ç¼“å†²è½¨é“
 
 void output_from_holding_track(ostream& os);
 bool put_in_holding_track(int c, ostream& os);
@@ -22,30 +22,30 @@ bool railroad(vector<int> input_order, int num_tracks, ostream& os)
 	smallest_track = -1;
 	for (int i = 0; i < input_order.size(); ++i)
 		if (input_order[i] == next_car) {
-			// Ö±½ÓÒÆµ½³ö¹ìµÀ
+			// ç›´æ¥ç§»åˆ°å‡ºè½¨é“
 			os << "car " << input_order[i] << ": input -> output" << endl;
 			++next_car;
 
-			// ´Ó»º³å¹ìµÀÒÆµ½³ö¹ìµÀ
+			// ä»ç¼“å†²è½¨é“ç§»åˆ°å‡ºè½¨é“
 			while (smallest_car == next_car) {
 				output_from_holding_track(os);
 				++next_car;
 			}
 		}
 		else {
-			// ÒÆµ½Ò»¸ö»º³å¹ìµÀ
+			// ç§»åˆ°ä¸€ä¸ªç¼“å†²è½¨é“
 			if (!put_in_holding_track(input_order[i], os))
 				return false;
 		}
 	return true;
 }
 
-// ½«±àºÅ×îĞ¡µÄ³µÏá´Ó»º³å¹ìµÀÒÆµ½³ö¹ìµÀ
+// å°†ç¼–å·æœ€å°çš„è½¦å¢ä»ç¼“å†²è½¨é“ç§»åˆ°å‡ºè½¨é“
 void output_from_holding_track(ostream& os)
 {
 	tracks[smallest_track].pop();
 	os << "car " << next_car << ": holding track " << smallest_track << " -> output" << endl;
-	// ¼ì²éËùÓĞÕ»¶¥£¬Ñ°ÕÒ±àºÅ×îĞ¡µÄ³µÏáºÍËüËùÊôµÄÕ»
+	// æ£€æŸ¥æ‰€æœ‰æ ˆé¡¶ï¼Œå¯»æ‰¾ç¼–å·æœ€å°çš„è½¦å¢å’Œå®ƒæ‰€å±çš„æ ˆ
 	smallest_car = 0x7fffffff;
 	for (int i = 0; i < tracks.size(); ++i)
 		if (!tracks[i].empty() && tracks[i].top() < smallest_car) {
@@ -54,7 +54,7 @@ void output_from_holding_track(ostream& os)
 		}
 }
 
-// ½«³µÏácÒÆµ½Ò»¸ö»º³å¹ìµÀ£¬Èç¹ûÃ»ÓĞ¿ÉÓÃµÄ»º³å¹ìµÀÔò·µ»Øfalse£¬·ñÔò·µ»Øtrue
+// å°†è½¦å¢cç§»åˆ°ä¸€ä¸ªç¼“å†²è½¨é“ï¼Œå¦‚æœæ²¡æœ‰å¯ç”¨çš„ç¼“å†²è½¨é“åˆ™è¿”å›falseï¼Œå¦åˆ™è¿”å›true
 bool put_in_holding_track(int c, ostream& os)
 {
 	int best_track = -1, best_top = num_cars;
