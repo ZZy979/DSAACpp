@@ -1,6 +1,6 @@
-#include "ADT/Matrix/Matrix.h"
-
 #include <gtest/gtest.h>
+
+#include "ADT/Matrix/Matrix.h"
 
 class Matrix_test : public ::testing::Test {
 protected:

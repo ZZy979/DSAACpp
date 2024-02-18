@@ -1,12 +1,15 @@
 #pragma once
-#include "Linear_list/Linked_list.h"
+
+#include <vector>
+
+#include "ADT/Linear_list/Linked_list.h"
 
 // 线性表的应用：箱子排序
 // 使用f将每个元素转换为整数，范围为[0, max]
 template<class T, class F>
 void bin_sort(Linked_list<T>& list, F f, int max)
 {
-	vector<Linked_list<T> > bins(max + 1, Linked_list<T>());
+	std::vector<Linked_list<T> > bins(max + 1, Linked_list<T>());
 
 	// 把元素从链表中取出，分配到箱子里
 	int n = list.size();

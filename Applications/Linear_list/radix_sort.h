@@ -2,7 +2,7 @@
 #include <cmath>
 #include <vector>
 #include <algorithm>
-#include "Linear_list/Linked_list.h"
+#include "ADT/Linear_list/Linked_list.h"
 #include "bin_sort.h"
 
 using std::vector;

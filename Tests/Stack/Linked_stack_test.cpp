@@ -1,6 +1,6 @@
-#include "ADT/Stack/Linked_stack.h"
-
 #include <gtest/gtest.h>
+
+#include "ADT/Stack/Linked_stack.h"
 
 class Linked_stack_test : public ::testing::Test {
 protected:

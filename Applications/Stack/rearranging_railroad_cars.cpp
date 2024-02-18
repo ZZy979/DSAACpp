@@ -1,5 +1,5 @@
 #include "rearranging_railroad_cars.h"
-#include "Stack/Array_stack.h"
+#include "ADT/Stack/Array_stack.h"
 
 using std::endl;
 

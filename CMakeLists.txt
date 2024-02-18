@@ -12,6 +12,7 @@ if(MSVC)
 endif()
 
 add_subdirectory(Tests)
+add_subdirectory(Applications)
 file(GLOB CHAPTERS RELATIVE ${CMAKE_SOURCE_DIR} ch*)
 foreach(c IN ITEMS ${CHAPTERS})
   add_subdirectory(${c})
