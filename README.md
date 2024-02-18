@@ -1,22 +1,27 @@
 # DSAACpp
-《数据结构、算法与应用C++语言描述》书中ADT代码
+《数据结构、算法与应用C++语言描述》书中代码和习题解答
 
 原书链接：<https://www.cise.ufl.edu/~sahni/dsaac/>
 
-## 构建
+# 构建
 使用CMake构建
 
-## 单元测试
+```shell
+cmake -G "Unix Makefiles" -B cmake-build
+cmake --build cmake-build
+```
+
+# 单元测试
 使用CTest运行单元测试
 
-## 目录结构
-解决方案包含ADT, Tests和Applications三个项目
-* ADT：包含所有数据结构类的代码
-* Tests：ADT对应的单元测试
-* Applications：ADT的应用（也是单元测试项目）
+```shell
+cd cmake-build/
+ctest
+```
 
-## 数据结构
-ADT项目包含的数据结构类如下
+# 代码目录
+## ADT
+ADT目录包含的数据结构类如下
 * Linear_list：线性表
     * [Linear_list](ADT/Linear_list/Linear_list.h)：线性表抽象基类
     * [Array_list](ADT/Linear_list/Array_list.h)：线性表的数组实现

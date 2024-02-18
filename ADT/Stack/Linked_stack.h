@@ -83,7 +83,7 @@ void Linked_stack<T>::push(const T& value)
 template<class T>
 void Linked_stack<T>::pop()
 {
-	check_empty();
+	this->check_empty();
 	delete_top();
 	--sz;
 }
@@ -91,14 +91,14 @@ void Linked_stack<T>::pop()
 template<class T>
 T& Linked_stack<T>::top()
 {
-	check_empty();
+	this->check_empty();
 	return tp->value;
 }
 
 template<class T>
 const T& Linked_stack<T>::top() const
 {
-	check_empty();
+	this->check_empty();
 	return tp->value;
 }
 
