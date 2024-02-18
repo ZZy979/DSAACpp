@@ -7,14 +7,14 @@ using std::ostringstream;
 using std::invalid_argument;
 using std::copy;
 
-// ¶ÓÁĞµÄÊı×éÊµÏÖ
+// é˜Ÿåˆ—çš„æ•°ç»„å®ç°
 template<class T>
 class Array_queue : public Queue<T>
 {
-	T* element;     // ´æ´¢ÔªËØµÄÒ»Î¬Êı×é
-	int space;      // Êı×éµÄÈİÁ¿
-	int head;       // ¶ÓÊ×Ö¸Õë
-	int tail;       // ¶ÓÎ²Ö¸Õë
+	T* element;     // å­˜å‚¨å…ƒç´ çš„ä¸€ç»´æ•°ç»„
+	int space;      // æ•°ç»„çš„å®¹é‡
+	int head;       // é˜Ÿé¦–æŒ‡é’ˆ
+	int tail;       // é˜Ÿå°¾æŒ‡é’ˆ
 public:
 	explicit Array_queue(int capacity = 16);
 	Array_queue(const Array_queue<T>& q);
@@ -38,7 +38,7 @@ public:
 
 };
 
-// ¹¹Ôìº¯Êı£¬Èç¹ûcapacity<=0ÔòÅ×³öinvalid_argumentÒì³£
+// æ„é€ å‡½æ•°ï¼Œå¦‚æœcapacity<=0åˆ™æŠ›å‡ºinvalid_argumentå¼‚å¸¸
 template<class T>
 Array_queue<T>::Array_queue(int capacity)
 {
@@ -82,7 +82,7 @@ void Array_queue<T>::push(const T& value)
 	if ((tail + 1) % space == head) {
 		T* new_element = new T[2 * space];
 		if (head <= 1)
-			// Ã»ÓĞĞÎ³É»·
+			// æ²¡æœ‰å½¢æˆç¯
 			copy(element + head, element + head + space - 1, new_element);
 		else {
 			copy(element + head, element + space, new_element);

@@ -7,14 +7,14 @@
 using std::copy;
 using std::invalid_argument;
 
-// ÏßĞÔ±íµÄÊı×éÊµÏÖ
+// çº¿æ€§è¡¨çš„æ•°ç»„å®ç°
 template<class T>
 class Array_list : public Linear_list<T>
 {
 protected:
-	T* element;     // ´æ´¢ÏßĞÔ±íÔªËØµÄÒ»Î¬Êı×é
-	int space;      // Êı×éµÄÈİÁ¿
-	int sz;         // ÔªËØ¸öÊı
+	T* element;     // å­˜å‚¨çº¿æ€§è¡¨å…ƒç´ çš„ä¸€ç»´æ•°ç»„
+	int space;      // æ•°ç»„çš„å®¹é‡
+	int sz;         // å…ƒç´ ä¸ªæ•°
 public:
 	explicit Array_list(int capacity = 10);
 	Array_list(const Array_list& a);
@@ -44,7 +44,7 @@ public:
 	protected:
 		T* position;
 	public:
-		// C++µÄË«Ïòµü´úÆ÷ĞèÒªµÄtypedef
+		// C++çš„åŒå‘è¿­ä»£å™¨éœ€è¦çš„typedef
 		typedef std::bidirectional_iterator_tag iterator_category;
 		typedef T value_type;
 		typedef ptrdiff_t difference_type;
@@ -70,38 +70,38 @@ public:
 		bool operator!=(const iterator& right) const { return position != right.position; }
 	};
 
-	// ·µ»ØÖ¸ÏòµÚÒ»¸öÔªËØµÄµü´úÆ÷
+	// è¿”å›æŒ‡å‘ç¬¬ä¸€ä¸ªå…ƒç´ çš„è¿­ä»£å™¨
 	iterator begin() const { return iterator(element); }
 
-	// ·µ»ØÖ¸Ïò×îºóÒ»¸öÔªËØµÄÏÂÒ»¸öÎ»ÖÃµÄµü´úÆ÷
+	// è¿”å›æŒ‡å‘æœ€åä¸€ä¸ªå…ƒç´ çš„ä¸‹ä¸€ä¸ªä½ç½®çš„è¿­ä»£å™¨
 	iterator end() const { return iterator(element + sz); }
 
 	T& operator[](int index) { return element[index]; }
 
 	const T& operator[](int index) const { return element[index]; }
 
-	// Ê¹Êı×éÈİÁ¿µÈÓÚmax{size(), 1}
+	// ä½¿æ•°ç»„å®¹é‡ç­‰äºmax{size(), 1}
 	void trim_to_size();
 
-	// Ê¹ÏßĞÔ±íµÄ´óĞ¡µÈÓÚnew_size
-	// Èç¹ûnew_size<size()ÔòÉ¾³ı¶àÓàÔªËØ£¬·ñÔòÊ²Ã´¶¼²»×ö
+	// ä½¿çº¿æ€§è¡¨çš„å¤§å°ç­‰äºnew_size
+	// å¦‚æœnew_size<size()åˆ™åˆ é™¤å¤šä½™å…ƒç´ ï¼Œå¦åˆ™ä»€ä¹ˆéƒ½ä¸åš
 	void set_size(int new_size);
 
-	// ·µ»Øvalue×îºóÒ»´Î³öÏÖÊ±µÄË÷Òı£¬Èô²»´æÔÚÔò·µ»Ø-1
+	// è¿”å›valueæœ€åä¸€æ¬¡å‡ºç°æ—¶çš„ç´¢å¼•ï¼Œè‹¥ä¸å­˜åœ¨åˆ™è¿”å›-1
 	int last_index_of(const T& value) const;
 
-	// ½»»»ÔªËØ*thisºÍaµÄÔªËØ
+	// äº¤æ¢å…ƒç´ *thiså’Œaçš„å…ƒç´ 
 	void swap(Array_list<T>& a);
 
-	// °ÑÊı×éÈİÁ¿¸ÄÎªµ±Ç°ÈİÁ¿ºÍnew_capacityµÄ½Ï´óÕß
+	// æŠŠæ•°ç»„å®¹é‡æ”¹ä¸ºå½“å‰å®¹é‡å’Œnew_capacityçš„è¾ƒå¤§è€…
 	void reserve(int new_capacity);
 
-	// É¾³ı[from, to)ÄÚµÄËùÓĞÔªËØ£¬Èôfrom»òto²»ÔÚ[0, size())ÄÚÔòÅ×³öout_of_rangeÒì³£
+	// åˆ é™¤[from, to)å†…çš„æ‰€æœ‰å…ƒç´ ï¼Œè‹¥fromæˆ–toä¸åœ¨[0, size())å†…åˆ™æŠ›å‡ºout_of_rangeå¼‚å¸¸
 	void remove_range(int from, int to);
 
 };
 
-// ¹¹Ôìº¯Êı£¬Èç¹ûcapacity<=0ÔòÅ×³öinvalid_argumentÒì³£
+// æ„é€ å‡½æ•°ï¼Œå¦‚æœcapacity<=0åˆ™æŠ›å‡ºinvalid_argumentå¼‚å¸¸
 template<class T>
 Array_list<T>::Array_list(int capacity)
 {
@@ -115,7 +115,7 @@ Array_list<T>::Array_list(int capacity)
 	sz = 0;
 }
 
-// ¿½±´¹¹Ôìº¯Êı
+// æ‹·è´æ„é€ å‡½æ•°
 template<class T>
 Array_list<T>::Array_list(const Array_list& a)
 {
@@ -125,7 +125,7 @@ Array_list<T>::Array_list(const Array_list& a)
 	copy(a.element, a.element + a.sz, element);
 }
 
-// ¸³ÖµÔËËã·û
+// èµ‹å€¼è¿ç®—ç¬¦
 template<class T>
 Array_list<T>& Array_list<T>::operator=(const Array_list<T>& a)
 {
@@ -183,19 +183,19 @@ void Array_list<T>::pop_back()
 template<class T>
 void Array_list<T>::insert(int index, const T& value)
 {
-	if (index < 0 || index > sz) {   // index¿ÉÒÔµÈÓÚlist_size
+	if (index < 0 || index > sz) {   // indexå¯ä»¥ç­‰äºlist_size
 		ostringstream oss;
 		oss << "index = " << index << ", size = " << sz;
 		throw out_of_range(oss.str());
 	}
 
-	// È·¶¨Êı×éÊÇ·ñÒÑÂú
+	// ç¡®å®šæ•°ç»„æ˜¯å¦å·²æ»¡
 	if (sz == space) {
 		change_length_1d(element, space, 2 * space);
 		space *= 2;
 	}
 
-	// °ÑÔªËØÏòÓÒÒÆ¶¯Ò»¸öÎ»ÖÃ
+	// æŠŠå…ƒç´ å‘å³ç§»åŠ¨ä¸€ä¸ªä½ç½®
 	std::copy_backward(element + index, element + sz, element + sz + 1);
 	element[index] = value;
 	++sz;
@@ -206,7 +206,7 @@ void Array_list<T>::erase(int index)
 {
 	this->check_index(index);
 	copy(element + index + 1, element + sz, element + index);
-	element[--sz].~T();  // µ÷ÓÃÎö¹¹º¯Êı
+	element[--sz].~T();  // è°ƒç”¨ææ„å‡½æ•°
 }
 
 template<class T>

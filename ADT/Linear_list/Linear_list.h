@@ -7,48 +7,48 @@ using std::ostream;
 using std::ostringstream;
 using std::out_of_range;
 
-// ³éÏóÀàLinear_list£¬ÏßĞÔ±íADT
+// æŠ½è±¡ç±»Linear_listï¼Œçº¿æ€§è¡¨ADT
 template<class T>
 class Linear_list
 {
 protected:
-	// Èôindex²»ÔÚ[0, size())ÄÚÔòÅ×³öout_of_rangeÒì³£
+	// è‹¥indexä¸åœ¨[0, size())å†…åˆ™æŠ›å‡ºout_of_rangeå¼‚å¸¸
 	void check_index(int index) const;
 public:
 	virtual ~Linear_list() = default;
 
-	// ·µ»Øtrue£¬µ±ÇÒ½öµ±ÏßĞÔ±íÎª¿Õ
+	// è¿”å›trueï¼Œå½“ä¸”ä»…å½“çº¿æ€§è¡¨ä¸ºç©º
 	virtual bool empty() const = 0;
 
-	// ·µ»ØÏßĞÔ±íµÄÔªËØ¸öÊı
+	// è¿”å›çº¿æ€§è¡¨çš„å…ƒç´ ä¸ªæ•°
 	virtual int size() const = 0;
 
-	// ·µ»ØË÷ÒıÎªindexµÄÔªËØ£¬Èôindex²»ÔÚ[0, size())ÄÚÔòÅ×³öout_of_rangeÒì³£
+	// è¿”å›ç´¢å¼•ä¸ºindexçš„å…ƒç´ ï¼Œè‹¥indexä¸åœ¨[0, size())å†…åˆ™æŠ›å‡ºout_of_rangeå¼‚å¸¸
 	virtual const T& get(int index) const = 0;
 
-	// ÓÃvalueÌæ»»Ë÷ÒıÎªindexµÄÔªËØ²¢·µ»ØÔ­À´µÄÔªËØ
-	// Èôindex²»ÔÚ[0, size())ÄÚÔòÅ×³öout_of_rangeÒì³£
+	// ç”¨valueæ›¿æ¢ç´¢å¼•ä¸ºindexçš„å…ƒç´ å¹¶è¿”å›åŸæ¥çš„å…ƒç´ 
+	// è‹¥indexä¸åœ¨[0, size())å†…åˆ™æŠ›å‡ºout_of_rangeå¼‚å¸¸
 	virtual T set(int index, const T& value) = 0;
 
-	// ·µ»ØvalueµÚÒ»´Î³öÏÖÊ±µÄË÷Òı£¬Èô²»´æÔÚÔò·µ»Ø-1
+	// è¿”å›valueç¬¬ä¸€æ¬¡å‡ºç°æ—¶çš„ç´¢å¼•ï¼Œè‹¥ä¸å­˜åœ¨åˆ™è¿”å›-1
 	virtual int index_of(const T& value) const = 0;
 
-	// °Ñvalue²åÈëÏßĞÔ±íµÄÓÒ¶Ë
+	// æŠŠvalueæ’å…¥çº¿æ€§è¡¨çš„å³ç«¯
 	virtual void push_back(const T& value) = 0;
 
-	// °ÑÏßĞÔ±íÓÒ¶ËµÄÔªËØÉ¾³ı£¬Èç¹û±íÎª¿ÕÔòÅ×³öout_of_rangeÒì³£
+	// æŠŠçº¿æ€§è¡¨å³ç«¯çš„å…ƒç´ åˆ é™¤ï¼Œå¦‚æœè¡¨ä¸ºç©ºåˆ™æŠ›å‡ºout_of_rangeå¼‚å¸¸
 	virtual void pop_back() = 0;
 
-	// °Ñvalue²åÈëË÷ÒıÎªindexµÄÎ»ÖÃÉÏ£¬Èôindex²»ÔÚ[0, size()]ÄÚÔòÅ×³öout_of_rangeÒì³£
+	// æŠŠvalueæ’å…¥ç´¢å¼•ä¸ºindexçš„ä½ç½®ä¸Šï¼Œè‹¥indexä¸åœ¨[0, size()]å†…åˆ™æŠ›å‡ºout_of_rangeå¼‚å¸¸
 	virtual void insert(int index, const T& value) = 0;
 
-	// É¾³ıË÷ÒıÎªindexµÄÔªËØ£¬Èôindex²»ÔÚ[0, size())ÄÚÔòÅ×³öout_of_rangeÒì³£
+	// åˆ é™¤ç´¢å¼•ä¸ºindexçš„å…ƒç´ ï¼Œè‹¥indexä¸åœ¨[0, size())å†…åˆ™æŠ›å‡ºout_of_rangeå¼‚å¸¸
 	virtual void erase(int index) = 0;
 
-	// Çå¿ÕÏßĞÔ±í
+	// æ¸…ç©ºçº¿æ€§è¡¨
 	virtual void clear() = 0;
 
-	// °ÑÏßĞÔ±í²åÈëÊä³öÁ÷out
+	// æŠŠçº¿æ€§è¡¨æ’å…¥è¾“å‡ºæµout
 	virtual void output(ostream& out) const = 0;
 };
 

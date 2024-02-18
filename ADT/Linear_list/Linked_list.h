@@ -2,14 +2,14 @@
 #include "Linear_list.h"
 #include "List_node.h"
 
-// ²»´øÍ·½ÚµãµÄµ¥ÏòÁ´±í
+// ä¸å¸¦å¤´èŠ‚ç‚¹çš„å•å‘é“¾è¡¨
 template<class T>
 class Linked_list : public Linear_list<T>
 {
 protected:
-	List_node<T>* first;	// Ö¸ÏòµÚÒ»¸ö½ÚµãµÄÖ¸Õë
-	List_node<T>* last;		// Ö¸Ïò×îºóÒ»¸ö½ÚµãµÄÖ¸Õë
-	int sz;                 // ÔªËØ¸öÊı
+	List_node<T>* first;	// æŒ‡å‘ç¬¬ä¸€ä¸ªèŠ‚ç‚¹çš„æŒ‡é’ˆ
+	List_node<T>* last;		// æŒ‡å‘æœ€åä¸€ä¸ªèŠ‚ç‚¹çš„æŒ‡é’ˆ
+	int sz;                 // å…ƒç´ ä¸ªæ•°
 private:
 	void copy(const Linked_list<T>& l);
 public:
@@ -38,7 +38,7 @@ public:
 	protected:
 		List_node<T>* ptr;
 	public:
-		// C++µÄÇ°Ïòµü´úÆ÷ĞèÒªµÄtypedef
+		// C++çš„å‰å‘è¿­ä»£å™¨éœ€è¦çš„typedef
 		typedef std::forward_iterator_tag iterator_category;
 		typedef T value_type;
 		typedef ptrdiff_t difference_type;
@@ -65,27 +65,27 @@ public:
 		bool operator!=(const iterator& right) const { return ptr != right.ptr; }
 	};
 
-	// ·µ»ØÖ¸ÏòµÚÒ»¸öÔªËØµÄµü´úÆ÷
+	// è¿”å›æŒ‡å‘ç¬¬ä¸€ä¸ªå…ƒç´ çš„è¿­ä»£å™¨
 	iterator begin() const { return iterator(first); }
 
-	// ·µ»ØÖ¸Ïò×îºóÒ»¸öÔªËØµÄÏÂÒ»¸öÎ»ÖÃµÄµü´úÆ÷
+	// è¿”å›æŒ‡å‘æœ€åä¸€ä¸ªå…ƒç´ çš„ä¸‹ä¸€ä¸ªä½ç½®çš„è¿­ä»£å™¨
 	iterator end() const { return iterator(nullptr); }
 
 	T& operator[](int index);
 
 	const T& operator[](int index) const { return get(index); }
 
-	// Ê¹ÏßĞÔ±íµÄ´óĞ¡µÈÓÚnew_size
-	// Èç¹ûnew_size<size()ÔòÉ¾³ı¶àÓàÔªËØ£¬·ñÔòÊ²Ã´¶¼²»×ö
+	// ä½¿çº¿æ€§è¡¨çš„å¤§å°ç­‰äºnew_size
+	// å¦‚æœnew_size<size()åˆ™åˆ é™¤å¤šä½™å…ƒç´ ï¼Œå¦åˆ™ä»€ä¹ˆéƒ½ä¸åš
 	void set_size(int new_size);
 
-	// ·µ»Øvalue×îºóÒ»´Î³öÏÖÊ±µÄË÷Òı£¬Èô²»´æÔÚÔò·µ»Ø-1
+	// è¿”å›valueæœ€åä¸€æ¬¡å‡ºç°æ—¶çš„ç´¢å¼•ï¼Œè‹¥ä¸å­˜åœ¨åˆ™è¿”å›-1
 	int last_index_of(const T& value) const;
 
-	// ½»»»ÔªËØ*thisºÍlµÄÔªËØ
+	// äº¤æ¢å…ƒç´ *thiså’Œlçš„å…ƒç´ 
 	void swap(Linked_list<T>& l);
 
-	// É¾³ı[from, to)ÄÚµÄËùÓĞÔªËØ£¬Èôfrom»òto²»ÔÚ[0, size())ÄÚÔòÅ×³öout_of_rangeÒì³£
+	// åˆ é™¤[from, to)å†…çš„æ‰€æœ‰å…ƒç´ ï¼Œè‹¥fromæˆ–toä¸åœ¨[0, size())å†…åˆ™æŠ›å‡ºout_of_rangeå¼‚å¸¸
 	void remove_range(int from, int to);
 
 };
@@ -116,14 +116,14 @@ Linked_list<T>::Linked_list(const Linked_list<T>& l)
 	copy(l);
 }
 
-// Îö¹¹º¯Êı£¬É¾³ıËùÓĞ½Úµã
+// ææ„å‡½æ•°ï¼Œåˆ é™¤æ‰€æœ‰èŠ‚ç‚¹
 template<class T>
 Linked_list<T>::~Linked_list()
 {
 	clear();
 }
 
-// ¸³ÖµÔËËã·û
+// èµ‹å€¼è¿ç®—ç¬¦
 template<class T>
 Linked_list<T>& Linked_list<T>::operator=(const Linked_list<T>& l)
 {
@@ -214,7 +214,7 @@ void Linked_list<T>::insert(int index, const T& value)
 	else if (index == sz)
 		push_back(value);
 	else {
-		// ÕÒµ½ĞÂÔªËØµÄÇ°Çı½Úµã
+		// æ‰¾åˆ°æ–°å…ƒç´ çš„å‰é©±èŠ‚ç‚¹
 		List_node<T>* p = first;
 		for (int i = 0; i < index - 1; ++i)
 			p = p->next;
@@ -235,7 +235,7 @@ void Linked_list<T>::erase(int index)
 			last = nullptr;
 	}
 	else {
-		// ÕÒµ½´ıÉ¾³ıÔªËØµÄÇ°Çı½Úµã
+		// æ‰¾åˆ°å¾…åˆ é™¤å…ƒç´ çš„å‰é©±èŠ‚ç‚¹
 		List_node<T>* p = first;
 		for (int i = 0; i < index - 1; ++i)
 			p = p->next;

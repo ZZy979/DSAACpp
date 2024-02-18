@@ -5,6 +5,6 @@
 using std::ostream;
 using std::string;
 
-// Õ»µÄÓ¦ÓÃ£ºÀ¨ºÅÆ¥Åä
-// Êä³öÆ¥ÅäµÄÀ¨ºÅÒÔ¼°²»Æ¥ÅäµÄÀ¨ºÅ
+// æ ˆçš„åº”ç”¨ï¼šæ‹¬å·åŒ¹é…
+// è¾“å‡ºåŒ¹é…çš„æ‹¬å·ä»¥åŠä¸åŒ¹é…çš„æ‹¬å·
 void print_matched_parentheses(string expr, ostream& os = std::cout);

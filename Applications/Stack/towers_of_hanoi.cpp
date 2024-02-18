@@ -7,13 +7,13 @@ using std::cout;
 using std::endl;
 using std::invalid_argument;
 
-// È«¾Ö±äÁ¿£¬±íÊ¾Èı¸öËş
+// å…¨å±€å˜é‡ï¼Œè¡¨ç¤ºä¸‰ä¸ªå¡”
 Array_stack<int> tower[3];
 
-// È«¾Ö±äÁ¿£¬´æ´¢ÒÆ¶¯²½Öè
+// å…¨å±€å˜é‡ï¼Œå­˜å‚¨ç§»åŠ¨æ­¥éª¤
 vector<string> moves;
 
-// ½«Ëşa¶¥²¿µÄÅÌ×ÓÒÆµ½Ëşb
+// å°†å¡”aé¡¶éƒ¨çš„ç›˜å­ç§»åˆ°å¡”b
 void move(int a, int b)
 {
 	int d = tower[a].top();

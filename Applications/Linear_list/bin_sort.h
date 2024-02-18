@@ -1,14 +1,14 @@
 #pragma once
 #include "Linear_list/Linked_list.h"
 
-// 线性表的应用：箱子排序
-// 使用f将每个元素转换为整数，范围为[0, max]
+// 绾挎�ц〃鐨勫簲鐢細绠卞瓙鎺掑簭
+// 浣跨敤f灏嗘瘡涓厓绱犺浆鎹负鏁存暟锛岃寖鍥翠负[0, max]
 template<class T, class F>
 void bin_sort(Linked_list<T>& list, F f, int max)
 {
 	vector<Linked_list<T> > bins(max + 1, Linked_list<T>());
 
-	// 把元素从链表中取出，分配到箱子里
+	// 鎶婂厓绱犱粠閾捐〃涓彇鍑猴紝鍒嗛厤鍒扮瀛愰噷
 	int n = list.size();
 	for (int i = 0; i < n; ++i) {
 		T elem = list[0];
@@ -16,7 +16,7 @@ void bin_sort(Linked_list<T>& list, F f, int max)
 		bins[f(elem)].insert(0, elem);
 	}
 
-	// 从箱子中收集元素
+	// 浠庣瀛愪腑鏀堕泦鍏冪礌
 	for (int i = max; i >= 0; --i)
 		while (!bins[i].empty()) {
 			T elem = bins[i][0];
@@ -25,7 +25,7 @@ void bin_sort(Linked_list<T>& list, F f, int max)
 		}
 }
 
-// 箱子排序，使用int(t)将元素转换为整数，范围为[0, max]
+// 绠卞瓙鎺掑簭锛屼娇鐢╥nt(t)灏嗗厓绱犺浆鎹负鏁存暟锛岃寖鍥翠负[0, max]
 template<class T>
 void bin_sort(Linked_list<T>& list, int max)
 {

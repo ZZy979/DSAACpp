@@ -7,12 +7,12 @@
 using std::vector;
 using std::invalid_argument;
 
-// ÏßĞÔ±íµÄvectorÊµÏÖ
+// çº¿æ€§è¡¨çš„vectorå®ç°
 template<class T>
 class Vector_list : public Linear_list<T>
 {
 protected:
-	vector<T> element;	// ´æ´¢ÏßĞÔ±íÔªËØµÄÏòÁ¿
+	vector<T> element;	// å­˜å‚¨çº¿æ€§è¡¨å…ƒç´ çš„å‘é‡
 public:
 	explicit Vector_list(int capacity = 10);
 
@@ -39,10 +39,10 @@ public:
 	typedef typename vector<T>::iterator iterator;
 	typedef typename vector<T>::const_iterator const_iterator;
 
-	// ·µ»ØÖ¸ÏòµÚÒ»¸öÔªËØµÄµü´úÆ÷
+	// è¿”å›æŒ‡å‘ç¬¬ä¸€ä¸ªå…ƒç´ çš„è¿­ä»£å™¨
 	const_iterator begin() const { return element.begin(); }
 
-	// ·µ»ØÖ¸Ïò×îºóÒ»¸öÔªËØµÄÏÂÒ»¸öÎ»ÖÃµÄµü´úÆ÷
+	// è¿”å›æŒ‡å‘æœ€åä¸€ä¸ªå…ƒç´ çš„ä¸‹ä¸€ä¸ªä½ç½®çš„è¿­ä»£å™¨
 	const_iterator end() const { return element.end(); }
 
 	T& operator[](int index) { return element[index]; }
@@ -51,7 +51,7 @@ public:
 
 };
 
-// ¹¹Ôìº¯Êı£¬Èç¹ûcapacity<=0ÔòÅ×³öinvalid_argumentÒì³£
+// æ„é€ å‡½æ•°ï¼Œå¦‚æœcapacity<=0åˆ™æŠ›å‡ºinvalid_argumentå¼‚å¸¸
 template<class T>
 Vector_list<T>::Vector_list(int capacity)
 	:element()

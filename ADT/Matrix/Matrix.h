@@ -13,9 +13,9 @@ using std::equal;
 template<class T>
 class Matrix
 {
-	int r;		// ¾ØÕóµÄĞĞÊı
-	int c;		// ¾ØÕóµÄÁĞÊı
-	T* element;	// ¾ØÕóÔªËØ
+	int r;		// çŸ©é˜µçš„è¡Œæ•°
+	int c;		// çŸ©é˜µçš„åˆ—æ•°
+	T* element;	// çŸ©é˜µå…ƒç´ 
 
 	void check_index(int i, int j) const;
 	void check_same_size(const Matrix<T>& m) const;
@@ -99,7 +99,7 @@ Matrix<T>::Matrix(int rows, int columns, int data[])
 	copy(data, data + rows * columns, element);
 }
 
-// ¿½±´¹¹Ôìº¯Êı
+// æ‹·è´æ„é€ å‡½æ•°
 template<class T>
 Matrix<T>::Matrix(const Matrix<T>& m)
 	:r(m.r), c(m.c), element(new T[m.r * m.c])
@@ -107,7 +107,7 @@ Matrix<T>::Matrix(const Matrix<T>& m)
 	copy(m.element, m.element + r * c, element);
 }
 
-// ¸³ÖµÔËËã·û
+// èµ‹å€¼è¿ç®—ç¬¦
 template<class T>
 Matrix<T>& Matrix<T>::operator=(const Matrix<T>& m)
 {
@@ -178,7 +178,7 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T>& m) const
 	int cp = 0;
 	for (int i = 0; i < r; ++i)
 		for (int j = 0; j < m.c; ++j) {
-			// ´Ó*this(i, 0)ºÍm(0, j)¿ªÊ¼
+			// ä»*this(i, 0)å’Œm(0, j)å¼€å§‹
 			int ct = i * c, cm = j;
 			T sum = T();
 			for (int k = 0; k < c; ++k) {

@@ -6,12 +6,12 @@
 using std::ostringstream;
 using std::invalid_argument;
 
-// 栈的链表实现
+// 鏍堢殑閾捐〃瀹炵幇
 template<class T>
 class Linked_stack : public Stack<T>
 {
-	List_node<T>* tp;  // 栈顶指针
-	int sz;  // 元素个数
+	List_node<T>* tp;  // 鏍堥《鎸囬拡
+	int sz;  // 鍏冪礌涓暟
 
 	void delete_top();
 	void copy(const Linked_stack<T>& s);

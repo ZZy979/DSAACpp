@@ -1,6 +1,6 @@
 #pragma once
 
-// Á´±í½Úµã
+// é“¾è¡¨èŠ‚ç‚¹
 template<class T>
 struct List_node
 {

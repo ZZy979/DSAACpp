@@ -5,7 +5,7 @@
 using std::ostream;
 using std::vector;
 
-// Õ»µÄÓ¦ÓÃ£ºÁĞ³µ³µÏáÖØÅÅ
-// ³µÏá³õÊ¼Ë³ĞòÎªinput_order£¬»º³å¹ìµÀ×î¶àÎªnum_tracks£¬Êä³öÒÆ¶¯ĞòÁĞ
-// Èç¹ûÄÜ¹»Íê³É³µÏáµÄÖØÅÅÔò·µ»Øtrue
+// æ ˆçš„åº”ç”¨ï¼šåˆ—è½¦è½¦å¢é‡æ’
+// è½¦å¢åˆå§‹é¡ºåºä¸ºinput_orderï¼Œç¼“å†²è½¨é“æœ€å¤šä¸ºnum_tracksï¼Œè¾“å‡ºç§»åŠ¨åºåˆ—
+// å¦‚æœèƒ½å¤Ÿå®Œæˆè½¦å¢çš„é‡æ’åˆ™è¿”å›true
 bool railroad(vector<int> input_order, int num_tracks, ostream& os = std::cout);
