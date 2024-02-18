@@ -101,7 +101,7 @@ void Array_queue<T>::push(const T& value)
 template<class T>
 void Array_queue<T>::pop()
 {
-	check_empty();
+	this->check_empty();
 	element[head].~T();
 	head = (head + 1) % space;
 }
@@ -109,27 +109,27 @@ void Array_queue<T>::pop()
 template<class T>
 T& Array_queue<T>::front()
 {
-	check_empty();
+	this->check_empty();
 	return element[head];
 }
 
 template<class T>
 const T& Array_queue<T>::front() const
 {
-	check_empty();
+	this->check_empty();
 	return element[head];
 }
 
 template<class T>
 T& Array_queue<T>::back()
 {
-	check_empty();
+	this->check_empty();
 	return element[(tail - 1 + space) % space];
 }
 
 template<class T>
 const T& Array_queue<T>::back() const
 {
-	check_empty();
+	this->check_empty();
 	return element[(tail - 1 + space) % space];
 }

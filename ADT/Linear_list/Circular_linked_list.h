@@ -130,7 +130,7 @@ Circular_linked_list<T>& Circular_linked_list<T>::operator=(const Circular_linke
 template<class T>
 const T& Circular_linked_list<T>::get(int index) const
 {
-	check_index(index);
+	this->check_index(index);
 	List_node<T>* p = header->next;
 	for (int i = 0; i < index; ++i)
 		p = p->next;
@@ -140,7 +140,7 @@ const T& Circular_linked_list<T>::get(int index) const
 template<class T>
 T Circular_linked_list<T>::set(int index, const T& value)
 {
-	check_index(index);
+	this->check_index(index);
 	List_node<T>* p = header->next;
 	for (int i = 0; i < index; ++i)
 		p = p->next;
@@ -197,7 +197,7 @@ void Circular_linked_list<T>::insert(int index, const T& value)
 template<class T>
 void Circular_linked_list<T>::erase(int index)
 {
-	check_index(index);
+	this->check_index(index);
 	List_node<T>* p = header;
 	for (int i = 0; i < index; ++i)
 		p = p->next;
@@ -258,7 +258,7 @@ bool operator<(const Circular_linked_list<T>& a, const Circular_linked_list<T>& 
 template<class T>
 T& Circular_linked_list<T>::operator[](int index)
 {
-	check_index(index);
+	this->check_index(index);
 	List_node<T>* p = header->next;
 	for (int i = 0; i < index; ++i)
 		p = p->next;
@@ -305,8 +305,8 @@ void Circular_linked_list<T>::swap(Circular_linked_list<T>& l)
 template<class T>
 void Circular_linked_list<T>::remove_range(int from, int to)
 {
-	check_index(from);
-	check_index(to);
+	this->check_index(from);
+	this->check_index(to);
 	if (from >= to)
 		return;
 	List_node<T>* p = header;

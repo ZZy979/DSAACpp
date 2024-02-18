@@ -137,7 +137,7 @@ Linked_list<T>& Linked_list<T>::operator=(const Linked_list<T>& l)
 template<class T>
 const T& Linked_list<T>::get(int index) const
 {
-	check_index(index);
+	this->check_index(index);
 	List_node<T>* p = first;
 	for (int i = 0; i < index; ++i)
 		p = p->next;
@@ -147,7 +147,7 @@ const T& Linked_list<T>::get(int index) const
 template<class T>
 T Linked_list<T>::set(int index, const T& value)
 {
-	check_index(index);
+	this->check_index(index);
 	List_node<T>* p = first;
 	for (int i = 0; i < index; ++i)
 		p = p->next;
@@ -226,7 +226,7 @@ void Linked_list<T>::insert(int index, const T& value)
 template<class T>
 void Linked_list<T>::erase(int index)
 {
-	check_index(index);
+	this->check_index(index);
 	List_node<T>* delete_node;
 	if (index == 0) {
 		delete_node = first;
@@ -300,7 +300,7 @@ bool operator<(const Linked_list<T>& a, const Linked_list<T>& b)
 template<class T>
 T& Linked_list<T>::operator[](int index)
 {
-	check_index(index);
+	this->check_index(index);
 	List_node<T>* p = first;
 	for (int i = 0; i < index; ++i)
 		p = p->next;
@@ -349,8 +349,8 @@ void Linked_list<T>::swap(Linked_list<T>& l)
 template<class T>
 void Linked_list<T>::remove_range(int from, int to)
 {
-	check_index(from);
-	check_index(to);
+	this->check_index(from);
+	this->check_index(to);
 	if (from >= to)
 		return;
 	if (from == 0) {

@@ -86,20 +86,20 @@ void Array_stack<T>::push(const T& value)
 template<class T>
 void Array_stack<T>::pop()
 {
-	check_empty();
+	this->check_empty();
 	element[--sz].~T();
 }
 
 template<class T>
 T& Array_stack<T>::top()
 {
-	check_empty();
+	this->check_empty();
 	return element[sz - 1];
 }
 
 template<class T>
 const T& Array_stack<T>::top() const
 {
-	check_empty();
+	this->check_empty();
 	return element[sz - 1];
 }
