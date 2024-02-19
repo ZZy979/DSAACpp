@@ -1,5 +1,5 @@
 #include "parenthesis_matching.h"
-#include "ADT/Stack/Array_stack.h"
+#include "ADT/Array_stack.h"
 
 using std::endl;
 

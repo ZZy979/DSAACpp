@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "ADT/Queue/Array_queue.h"
+#include "ADT/Array_queue.h"
 
 class Array_queue_test : public ::testing::Test {
 protected:

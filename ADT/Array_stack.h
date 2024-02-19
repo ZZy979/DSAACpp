@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <algorithm>
 #include "Stack.h"
-#include "../utils.h"
+#include "utils.h"
 
 using std::ostringstream;
 using std::invalid_argument;

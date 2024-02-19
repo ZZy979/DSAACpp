@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdexcept>
 #include "towers_of_hanoi.h"
-#include "ADT/Stack/Array_stack.h"
+#include "ADT/Array_stack.h"
 
 using std::cout;
 using std::endl;

@@ -1,5 +1,5 @@
 #include "offline_equivalence_class.h"
-#include "ADT/Stack/Array_stack.h"
+#include "ADT/Array_stack.h"
 
 int equivalence_class(int n, vector<vector<int>> relations)
 {

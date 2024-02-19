@@ -20,33 +20,33 @@ ctest
 ```
 
 # 代码目录
-## ADT
-ADT目录包含的数据结构类如下
-* Linear_list：线性表
-    * [Linear_list](ADT/Linear_list/Linear_list.h)：线性表抽象基类
-    * [Array_list](ADT/Linear_list/Array_list.h)：线性表的数组实现
-    * [Vector_list](ADT/Linear_list/Vector_list.h)：线性表的vector实现
-    * [Linked_list](ADT/Linear_list/Linked_list.h)：不带头节点的单向链表
-    * [Circular_linked_list](ADT/Linear_list/Circular_linked_list.h)：带头节点的单向循环链表
-* Matrix：矩阵
-    * [Matrix](ADT/Matrix/Matrix.h)：矩阵
-* Stack：栈
-    * [Stack](ADT/Stack/Stack.h)：栈抽象基类
-    * [Array_stack](ADT/Stack/Array_stack.h)：栈的数组实现
-    * [Linked_stack](ADT/Stack/Linked_stack.h)：栈的链表实现
-* Queue：队列
-    * [Queue](ADT/Queue/Queue.h)：队列抽象基类
-    * [Array_queue](ADT/Queue/Array_queue.h)：队列的数组实现
-* [utils.h](ADT/utils.h)：辅助函数
+## 第5章 线性表——数组描述
+* [Linear_list](ADT/Linear_list.h)：线性表抽象基类
+* [Array_list](ADT/Array_list.h)：线性表的数组实现
+* [Vector_list](ADT/Vector_list.h)：线性表的vector实现
+* [Linked_list](ADT/Linked_list.h)：不带头节点的单向链表
+* [Circular_linked_list](ADT/Circular_linked_list.h)：带头节点的单向循环链表
 
-## 应用
-Applications项目包含的数据结构应用如下
-* Linear_list：线性表
-    * [箱子排序](Applications/Linear_list/bin_sort.h)
-    * [基数排序](Applications/Linear_list/radix_sort.h)
-* Stack：栈
-    * [括号匹配](Applications/Stack/parenthesis_matching.cpp)
-    * [汉诺塔](Applications/Stack/towers_of_hanoi.cpp)
-    * [列车车厢重排](Applications/Stack/rearranging_railroad_cars.cpp)
-    * [开关盒布线](Applications/Stack/switch_box_routing.cpp)
-    * [离线等价类](Applications/Stack/offline_equivalence_class.cpp)
+## 第6章 线性表——链式描述
+* [箱子排序](ch06/bin_sort.h)
+* [基数排序](ch06/radix_sort.h)
+
+## 第7章 数组和矩阵
+* [Matrix](ADT/Matrix.h)：矩阵
+
+## 第8章 栈
+### 数据结构
+* [Stack](ADT/Stack.h)：栈抽象基类
+* [Array_stack](ADT/Array_stack.h)：栈的数组实现
+* [Linked_stack](ADT/Linked_stack.h)：栈的链表实现
+
+### 应用
+* [括号匹配](ch08/parenthesis_matching.cpp)
+* [汉诺塔](ch08/towers_of_hanoi.cpp)
+* [列车车厢重排](ch08/rearranging_railroad_cars.cpp)
+* [开关盒布线](ch08/switch_box_routing.cpp)
+* [离线等价类](ch08/offline_equivalence_class.cpp)
+
+## 第9章 队列
+* [Queue](ADT/Queue.h)：队列抽象基类
+* [Array_queue](ADT/Array_queue.h)：队列的数组实现

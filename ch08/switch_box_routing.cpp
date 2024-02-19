@@ -1,5 +1,5 @@
 #include "switch_box_routing.h"
-#include "ADT/Stack/Array_stack.h"
+#include "ADT/Array_stack.h"
 
 bool check_box(vector<int> net)
 {

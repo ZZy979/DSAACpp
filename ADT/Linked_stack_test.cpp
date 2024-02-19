@@ -1,8 +1,8 @@
 #include <gtest/gtest.h>
 
-#include "ADT/Stack/Array_stack.h"
+#include "ADT/Linked_stack.h"
 
-class Array_stack_test : public ::testing::Test {
+class Linked_stack_test : public ::testing::Test {
 protected:
     void SetUp() override {
         stack.push(3);
@@ -12,21 +12,20 @@ protected:
         stack.push(8);
     }
 
-    Array_stack<int> stack;
+    Linked_stack<int> stack;
 };
 
-TEST_F(Array_stack_test, constructor) {
-    Stack<double>* a = new Array_stack<double>(20);
+TEST_F(Linked_stack_test, constructor) {
+    Stack<double>* a = new Linked_stack<double>();
     delete a;
-    Array_stack<int> b(stack);
-    EXPECT_THROW(b = Array_stack<int>(-1), std::invalid_argument);
+    Linked_stack<int> b(stack);
 }
 
-TEST_F(Array_stack_test, copy) {
-    Array_stack<int> *a = new Array_stack<int>();
+TEST_F(Linked_stack_test, copy) {
+    Linked_stack<int>* a = new Linked_stack<int>();
     for (int i = 0; i < 4; ++i)
         a->push(i);
-    Array_stack<int> b;
+    Linked_stack<int> b;
     b = *a;
     delete a;
     EXPECT_EQ(4, b.size());
@@ -36,8 +35,8 @@ TEST_F(Array_stack_test, copy) {
     }
 }
 
-TEST_F(Array_stack_test, size_and_empty) {
-    Array_stack<int> a;
+TEST_F(Linked_stack_test, size_and_empty) {
+    Linked_stack<int> a;
     EXPECT_EQ(0, a.size());
     EXPECT_TRUE(a.empty());
     a.push(8);
@@ -45,13 +44,13 @@ TEST_F(Array_stack_test, size_and_empty) {
     EXPECT_FALSE(a.empty());
 }
 
-TEST_F(Array_stack_test, push) {
+TEST_F(Linked_stack_test, push) {
     stack.push(1);
     EXPECT_EQ(6, stack.size());
     EXPECT_EQ(1, stack.top());
 }
 
-TEST_F(Array_stack_test, pop) {
+TEST_F(Linked_stack_test, pop) {
     stack.pop();
     EXPECT_EQ(4, stack.size());
     EXPECT_EQ(6, stack.top());
@@ -59,13 +58,13 @@ TEST_F(Array_stack_test, pop) {
     EXPECT_THROW(stack.pop(), Stack_empty);
 }
 
-TEST_F(Array_stack_test, top) {
+TEST_F(Linked_stack_test, top) {
     EXPECT_EQ(8, stack.top());
     stack.clear();
     EXPECT_THROW(stack.top(), Stack_empty);
 }
 
-TEST_F(Array_stack_test, clear) {
+TEST_F(Linked_stack_test, clear) {
     stack.clear();
     EXPECT_TRUE(stack.empty());
 }

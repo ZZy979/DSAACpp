@@ -1,0 +1,11 @@
+add_library(parenthesis_matching parenthesis_matching.cpp)
+add_library(towers_of_hanoi towers_of_hanoi.cpp)
+add_library(rearranging_railroad_cars rearranging_railroad_cars.cpp)
+add_library(switch_box_routing switch_box_routing.cpp)
+add_library(offline_equivalence_class offline_equivalence_class.cpp)
+
+add_gtest(NAME parenthesis_matching_test SOURCE parenthesis_matching_test.cpp LIBRARY parenthesis_matching)
+add_gtest(NAME towers_of_hanoi_test SOURCE towers_of_hanoi_test.cpp LIBRARY towers_of_hanoi)
+add_gtest(NAME rearranging_railroad_cars_test SOURCE rearranging_railroad_cars_test.cpp LIBRARY rearranging_railroad_cars)
+add_gtest(NAME switch_box_routing_test SOURCE switch_box_routing_test.cpp LIBRARY switch_box_routing)
+add_gtest(NAME offline_equivalence_class_test SOURCE offline_equivalence_class_test.cpp LIBRARY offline_equivalence_class)

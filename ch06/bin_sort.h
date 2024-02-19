@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "ADT/Linear_list/Linked_list.h"
+#include "ADT/Linked_list.h"
 
 // 线性表的应用：箱子排序
 // 使用f将每个元素转换为整数，范围为[0, max]

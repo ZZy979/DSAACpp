@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "ADT/Linear_list/Circular_linked_list.h"
+#include "ADT/Circular_linked_list.h"
 
 class Circular_linked_list_test : public ::testing::Test {
 protected:

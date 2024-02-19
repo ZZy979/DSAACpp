@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "ADT/Linear_list/Vector_list.h"
+#include "ADT/Vector_list.h"
 
 class Vector_list_test : public ::testing::Test {
 protected:
