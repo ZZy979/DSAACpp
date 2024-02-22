@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "ADT/Array_list.h"
+#include "Array_list.h"
 
 class Array_list_test : public ::testing::Test {
 protected:

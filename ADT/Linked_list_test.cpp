@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "ADT/Linked_list.h"
+#include "Linked_list.h"
 
 class Linked_list_test : public ::testing::Test {
 protected:

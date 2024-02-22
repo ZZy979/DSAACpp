@@ -1,7 +1,7 @@
 #pragma once
 #include <sstream>
 #include "Stack.h"
-#include "ADT/List_node.h"
+#include "List_node.h"
 
 using std::ostringstream;
 using std::invalid_argument;

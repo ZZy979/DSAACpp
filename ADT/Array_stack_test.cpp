@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "ADT/Array_stack.h"
+#include "Array_stack.h"
 
 class Array_stack_test : public ::testing::Test {
 protected:

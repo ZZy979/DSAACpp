@@ -1,3 +1,4 @@
+add_gtest(NAME utils_test SOURCE utils_test.cpp)
 add_gtest(NAME Array_list_test SOURCE Array_list_test.cpp)
 add_gtest(NAME Vector_list_test SOURCE Vector_list_test.cpp)
 add_gtest(NAME Linked_list_test SOURCE Linked_list_test.cpp)
