@@ -21,8 +21,18 @@ ctest
 
 # 代码目录
 ## 第1章 C++回顾
+### 1.4 动态存储空间分配
+* [创建和释放二维数组](ADT/utils.h)
+* [练习1-12~1-14](ADT/utils.h)
+
 ### 1.5 自有数据类型
 * [Currency类](ch01/Currency.h)
+* [练习1-18](ch01/Currency.h)
+
+### 1.7 递归函数
+* [例1-3 排列](ch01/permutations.h)
+* [练习1-25 子集生成](ch01/subset_generation.cpp)
+* [练习1-26 格雷码](ch01/gray_code.cpp)
 
 ## 第5章 线性表——数组描述
 * [Linear_list](ADT/Linear_list.h)：线性表抽象基类
